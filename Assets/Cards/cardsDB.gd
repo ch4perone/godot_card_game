@@ -7,18 +7,21 @@ const DATA = {
 		{
 			"TYPE": "Weather",
 			"NAME": "Sunshine",
-			"FILE": "sun.png"
+			"FILE": "sun.png",
+			"COST": 0,
 		},
 	CARDS.Rain : 
 		{
 			"TYPE": "Weather",
 			"NAME": "Rain",
-			"FILE": "rain.png"
+			"FILE": "rain.png",
+			"COST": 0,
 		},
 	CARDS.RosePetalTea : 
 		{
 			"TYPE": "Food",
 			"NAME": "Rose Petal Tea",
-			"FILE": "rose_petal_tea.png"
+			"FILE": "rose_tea.png",
+			"COST": 2,
 		}
 }

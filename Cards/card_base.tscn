@@ -27,15 +27,16 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="Bars/Panel"]
 material = SubResource("ShaderMaterial_3s52l")
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-offset_top = 4.0
-offset_right = 361.0
-offset_bottom = 24.0
+offset_left = 5.0
+offset_top = 6.0
+offset_right = 355.0
+offset_bottom = 66.0
 texture = SubResource("CanvasTexture_dvkvn")
 
 [node name="TopGap" type="MarginContainer" parent="Bars"]
-custom_minimum_size = Vector2(0, 25)
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
 [node name="TopBar" type="HBoxContainer" parent="Bars"]
@@ -55,7 +56,36 @@ layout_mode = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Card Name"
-horizontal_alignment = 1
 
 [node name="Border" type="Sprite2D" parent="."]
 centered = false
+
+[node name="IconVBoxContainer" type="VBoxContainer" parent="."]
+layout_direction = 3
+layout_mode = 2
+
+[node name="TopGap" type="MarginContainer" parent="IconVBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="IconHBoxContainer" type="HBoxContainer" parent="IconVBoxContainer"]
+layout_direction = 3
+layout_mode = 2
+
+[node name="LeftGap" type="MarginContainer" parent="IconVBoxContainer/IconHBoxContainer"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="IconVBoxContainer/IconHBoxContainer"]
+custom_minimum_size = Vector2(70, 60)
+layout_direction = 3
+layout_mode = 2
+
+[node name="IconText" type="RichTextLabel" parent="IconVBoxContainer/IconHBoxContainer/TextureRect"]
+layout_direction = 2
+layout_mode = 0
+offset_left = 14.0
+offset_top = 5.0
+offset_right = 74.0
+offset_bottom = 34.0
+scale = Vector2(2, 2)

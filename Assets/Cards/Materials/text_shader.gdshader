@@ -5,8 +5,7 @@ void vertex() {
 }
 
 void fragment() {
-    vec4 color = vec4(0.2, 0.2, 0.2, 1); // RGBA
-    COLOR = color;
+	COLOR = vec4(0.2, 0.2, 0.2, .8);
 }
 
 //void light() {
