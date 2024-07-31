@@ -2,7 +2,7 @@ extends MarginContainer
 
 
 @onready var cardDB = preload("res://Assets/Cards/cardsDB.gd")
-var card_id = "RosePetalTea"
+var card_id = "Sunshine"#"RosePetalTea"
 @onready var card_info = cardDB.DATA[cardDB.CARDS.get(card_id)]
 @onready var card_art_path = "res://Assets/Cards/Art/" + card_info["FILE"]
 @onready var card_border_path = "res://Assets/Cards/" + "card_border_" + card_info["TYPE"].to_lower() + ".png"
@@ -33,17 +33,18 @@ func set_cardui():
 	$CardUI/TopVBoxContainer/TopBar/Name/CenterContainer/Name.text = card_info["NAME"]
 	$CardUI/TopVBoxContainer/TopBar/Name/CenterContainer/Name.z_index=1
 	
-	#if "FLAVOR_TEXT" in card_info.keys():
-	#	print("flavor test")
-	#	var flavor_label = $CardUI/BottomVBoxContainer/BottomBar/VBoxContainer/FlavorText
-	#	flavor_label.add_text(card_info["FLAVOR_TEXT"])
-	#	flavor_label.z_index=1
-	#	flavor_label.pop()
-	#if "TEXT" in card_info.keys():
-	#	var card_text_label = $CardUI/BottomVBoxContainer/BottomBar/VBoxContainer/CardText
-	#	card_text_label.add_text(card_info["TEXT"])
-	#	card_text_label.z_index=1
-	#	card_text_label.pop()
+	if "FLAVOR_TEXT" in card_info.keys():
+		print("flavor test")
+		var flavor_label = $CardUI/BottomVBoxContainer/BottomBar/VBoxContainer/FlavorText
+		flavor_label.push_italics()
+		flavor_label.add_text("\"" + card_info["FLAVOR_TEXT"] + "\"")
+		flavor_label.z_index=1
+		flavor_label.pop()
+	if "TEXT" in card_info.keys():
+		var card_text_label = $CardUI/BottomVBoxContainer/BottomBar/VBoxContainer/CardText
+		card_text_label.add_text(card_info["TEXT"])
+		card_text_label.z_index=1
+		card_text_label.pop()
 	
 	$CardUI.visible = false
 
