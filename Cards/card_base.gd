@@ -2,7 +2,7 @@ extends MarginContainer
 
 
 @onready var cardDB = preload("res://Assets/Cards/cardsDB.gd")
-var card_id = "Sunshine"#"RosePetalTea"
+var card_id = "RosePetalTea"#"RosePetalTea"
 @onready var card_info = cardDB.DATA[cardDB.CARDS.get(card_id)]
 @onready var card_art_path = "res://Assets/Cards/Art/" + card_info["FILE"]
 @onready var card_border_path = "res://Assets/Cards/" + "card_border_" + card_info["TYPE"].to_lower() + ".png"
@@ -37,7 +37,7 @@ func set_cardui():
 		print("flavor test")
 		var flavor_label = $CardUI/BottomVBoxContainer/BottomBar/VBoxContainer/FlavorText
 		flavor_label.push_italics()
-		flavor_label.add_text("\"" + card_info["FLAVOR_TEXT"] + "\"")
+		flavor_label.append_text("\"" + card_info["FLAVOR_TEXT"] + "\"")#" [center]\"" + card_info["FLAVOR_TEXT"] + "\"[/center]")
 		flavor_label.z_index=1
 		flavor_label.pop()
 	if "TEXT" in card_info.keys():
@@ -56,7 +56,7 @@ func set_icon_label():
 	icon.expand = true
 	icon.stretch_mode = TextureRect.EXPAND_KEEP_SIZE
 	var cost = card_info["COST"]
-	var sign = "+" if cost > 0 else "-" if cost < 0 else ""
+	var sign = "+" if cost > 0 else "-" if cost < 0 else " "
 	var label = $IconVBoxContainer/IconHBoxContainer/TextureRect/IconText
 	var t=Texture.new()
 	t=load(clover_icon_path)
@@ -69,7 +69,7 @@ func set_icon_label():
 	label.append_text(str(sign,cost))
 	
 	
-	label.add_image(t,20,20)
+	label.add_image(t,40,40)
 	label.pop()
 
 

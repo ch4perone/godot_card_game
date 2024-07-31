@@ -10,7 +10,7 @@ const DATA = {
 			"FILE": "sun.png",
 			"COST": 0,
 			"FLAVOR_TEXT": "What a nice day.",
-			"TEXT": "Increases temperature by 3°C\nDecreases soil humidity by 10%",
+			"TEXT": "Temperature +3°C.\nSoil humidity -10%.",
 		},
 	CARDS.Rain : 
 		{
@@ -18,6 +18,8 @@ const DATA = {
 			"NAME": "Rain",
 			"FILE": "rain.png",
 			"COST": 0,
+			"FLAVOR_TEXT": "Some people feel the rain, others just get wet",
+			"TEXT": "Temperature -2°C.\nSoil humidity +30%.",
 		},
 	CARDS.RosePetalTea : 
 		{
