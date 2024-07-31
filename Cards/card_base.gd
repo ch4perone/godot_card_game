@@ -7,6 +7,7 @@ var card_id = "RosePetalTea"
 @onready var card_art_path = "res://Assets/Cards/Art/" + card_info["FILE"]
 @onready var card_border_path = "res://Assets/Cards/" + "card_border_" + card_info["TYPE"].to_lower() + ".png"
 @onready var card_icon_path = "res://Assets/Cards/card_icon.png"
+@onready var clover_icon_path = "res://Assets/Cards/clover_icon.png"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -39,13 +40,18 @@ func set_icon_label():
 	var cost = card_info["COST"]
 	var sign = "+" if cost > 0 else "-" if cost < 0 else ""
 	var label = $IconVBoxContainer/IconHBoxContainer/TextureRect/IconText
-	
+	var t=Texture.new()
+	t=load(clover_icon_path)
+
 	if cost > 0:
 		label.push_color(Color("darkgreen"))
 	elif cost < 0:
 		label.push_color(Color("red"))
 	label.push_bold()
 	label.append_text(str(sign,cost))
+	
+	
+	label.add_image(t,20,20)
 	label.pop()
 
 

@@ -77,15 +77,15 @@ custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="IconVBoxContainer/IconHBoxContainer"]
-custom_minimum_size = Vector2(70, 60)
+custom_minimum_size = Vector2(95, 65)
 layout_direction = 3
 layout_mode = 2
 
 [node name="IconText" type="RichTextLabel" parent="IconVBoxContainer/IconHBoxContainer/TextureRect"]
 layout_direction = 2
 layout_mode = 0
-offset_left = 14.0
-offset_top = 5.0
-offset_right = 74.0
-offset_bottom = 34.0
-scale = Vector2(2, 2)
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 69.0
+offset_bottom = 36.0
+scale = Vector2(2.2, 2.2)
