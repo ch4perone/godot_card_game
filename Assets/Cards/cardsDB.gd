@@ -23,5 +23,6 @@ const DATA = {
 			"NAME": "Rose Petal Tea",
 			"FILE": "rose_tea.png",
 			"COST": 2,
+			"FLAVOR_TEXT": "Drink tea for Good Fortune"
 		}
 }

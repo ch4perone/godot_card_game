@@ -18,14 +18,18 @@ script = ExtResource("1_a10om")
 [node name="Card" type="Sprite2D" parent="."]
 centered = false
 
-[node name="Bars" type="VBoxContainer" parent="."]
-layout_mode = 2
-size_flags_vertical = 0
-
-[node name="Panel" type="Panel" parent="Bars"]
+[node name="CardUI" type="Control" parent="."]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Bars/Panel"]
+[node name="TopVBoxContainer" type="VBoxContainer" parent="CardUI"]
+layout_mode = 2
+offset_right = 361.0
+offset_bottom = 612.0
+
+[node name="Panel" type="Panel" parent="CardUI/TopVBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CardUI/TopVBoxContainer/Panel"]
 material = SubResource("ShaderMaterial_3s52l")
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
@@ -35,33 +39,66 @@ offset_right = 355.0
 offset_bottom = 66.0
 texture = SubResource("CanvasTexture_dvkvn")
 
-[node name="TopGap" type="MarginContainer" parent="Bars"]
+[node name="TopGap" type="MarginContainer" parent="CardUI/TopVBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="TopBar" type="HBoxContainer" parent="Bars"]
+[node name="TopBar" type="HBoxContainer" parent="CardUI/TopVBoxContainer"]
 layout_mode = 2
 
-[node name="LeftGap" type="MarginContainer" parent="Bars/TopBar"]
+[node name="LeftGap" type="MarginContainer" parent="CardUI/TopVBoxContainer/TopBar"]
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
 
-[node name="Name" type="MarginContainer" parent="Bars/TopBar"]
+[node name="Name" type="MarginContainer" parent="CardUI/TopVBoxContainer/TopBar"]
 layout_mode = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="Bars/TopBar/Name"]
+[node name="CenterContainer" type="CenterContainer" parent="CardUI/TopVBoxContainer/TopBar/Name"]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="Bars/TopBar/Name/CenterContainer"]
+[node name="Name" type="Label" parent="CardUI/TopVBoxContainer/TopBar/Name/CenterContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Card Name"
+
+[node name="BottomVBoxContainer" type="VBoxContainer" parent="CardUI"]
+layout_mode = 1
+offset_right = 361.0
+offset_bottom = 612.0
+alignment = 2
+
+[node name="Panel" type="Panel" parent="CardUI/BottomVBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CardUI/BottomVBoxContainer/Panel"]
+material = SubResource("ShaderMaterial_3s52l")
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+offset_left = 5.0
+offset_top = 6.0
+offset_right = 355.0
+offset_bottom = 66.0
+texture = SubResource("CanvasTexture_dvkvn")
+
+[node name="BottomBar" type="HBoxContainer" parent="CardUI/BottomVBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CardUI/BottomVBoxContainer/BottomBar"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="FlavorText" type="RichTextLabel" parent="CardUI/BottomVBoxContainer/BottomBar"]
+layout_mode = 2
+
+[node name="CardText" type="RichTextLabel" parent="CardUI/BottomVBoxContainer/BottomBar"]
+layout_mode = 2
 
 [node name="Border" type="Sprite2D" parent="."]
 centered = false
 
 [node name="IconVBoxContainer" type="VBoxContainer" parent="."]
-layout_direction = 3
+layout_direction = 2
 layout_mode = 2
 
 [node name="TopGap" type="MarginContainer" parent="IconVBoxContainer"]
