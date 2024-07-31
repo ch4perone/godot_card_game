@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://bgc8t4cq8qr80"]
+
+[ext_resource type="Script" path="res://Cards/card_base.gd" id="1_a10om"]
+[ext_resource type="Shader" path="res://Assets/Cards/Materials/text_shader.gdshader" id="2_dfq6a"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3s52l"]
+shader = ExtResource("2_dfq6a")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_dvkvn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a5e8g"]
+shader = ExtResource("2_dfq6a")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_0wcp6"]
+
+[node name="CardBase" type="MarginContainer"]
+offset_right = 361.0
+offset_bottom = 612.0
+pivot_offset = Vector2(125, 225)
+mouse_default_cursor_shape = 6
+script = ExtResource("1_a10om")
+
+[node name="Card" type="Sprite2D" parent="."]
+centered = false
+
+[node name="Border" type="Sprite2D" parent="."]
+centered = false
+
+[node name="Bars" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Panel" type="Panel" parent="Bars"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Bars/Panel"]
+material = SubResource("ShaderMaterial_3s52l")
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+offset_top = 4.0
+offset_right = 361.0
+offset_bottom = 24.0
+texture = SubResource("CanvasTexture_dvkvn")
+
+[node name="TopGap" type="MarginContainer" parent="Bars"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="TopBar" type="HBoxContainer" parent="Bars"]
+layout_mode = 2
+
+[node name="LeftGap" type="MarginContainer" parent="Bars/TopBar"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+
+[node name="Name" type="MarginContainer" parent="Bars/TopBar"]
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Bars/TopBar/Name"]
+material = SubResource("ShaderMaterial_a5e8g")
+clip_contents = true
+layout_mode = 2
+texture = SubResource("CanvasTexture_0wcp6")
+draw_center = false
+
+[node name="CenterContainer" type="CenterContainer" parent="Bars/TopBar/Name"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Bars/TopBar/Name/CenterContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Card Name"

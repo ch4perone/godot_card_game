@@ -1,0 +1,28 @@
+# Godot 4+ specific ignores
+.godot/
+addons/
+
+# Windows files
+desktop.ini
+
+# IDEA settings
+.idea/
+
+# VS Code / VS Studio
+.vscode
+.vs
+*.code-workspace
+
+# SCONS
+.sconsign.dblite
+.scons_node_count
+config.log
+.sconf_temp
+*.os
+
+# Build library binary
+*.so
+
+# The default cache directory
+cache/
+.cache/
