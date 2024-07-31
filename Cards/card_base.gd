@@ -37,6 +37,9 @@ func _on_mouse_exited():
 	$Bars.visible = false
 	print("Mouse exited")
 
+func _input(event):
+	if Input.is_action_pressed("quit_game"):
+		get_tree().quit()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
