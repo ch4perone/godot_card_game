@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://27ucvrf8htk6"]
+
+[ext_resource type="Texture2D" uid="uid://b5ypqqlcxe6jb" path="res://assets/Cards/card_icon.png" id="1_ub1qw"]
+[ext_resource type="PackedScene" uid="uid://bgc8t4cq8qr80" path="res://scenes/card_base.tscn" id="2_rk3av"]
+[ext_resource type="PackedScene" uid="uid://dccu5k4igqc1r" path="res://scenes/card_ui.tscn" id="3_pryqy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cfc57"]
+size = Vector2(2560, 900)
+
+[node name="Board" type="Node2D"]
+metadata/_edit_lock_ = true
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.535421, 0.535421, 0.535421, 1)
+position = Vector2(496, 181)
+scale = Vector2(2.39538, 1.68966)
+texture = ExtResource("1_ub1qw")
+centered = false
+
+[node name="CardBase" parent="." instance=ExtResource("2_rk3av")]
+offset_left = 712.0
+offset_top = 777.0
+offset_right = 1073.0
+offset_bottom = 1389.0
+
+[node name="CardDropArea" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea"]
+position = Vector2(1280, 450)
+shape = SubResource("RectangleShape2D_cfc57")
+
+[node name="BoardUI" type="CanvasLayer" parent="."]
+
+[node name="Hand" type="HBoxContainer" parent="BoardUI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -500.0
+offset_top = -350.0
+offset_right = 500.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+
+[node name="CardUI" parent="BoardUI/Hand" instance=ExtResource("3_pryqy")]
+layout_mode = 2
+
+[node name="CardUI2" parent="BoardUI/Hand" instance=ExtResource("3_pryqy")]
+layout_mode = 2
+
+[node name="CardUI3" parent="BoardUI/Hand" instance=ExtResource("3_pryqy")]
+layout_mode = 2

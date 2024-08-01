@@ -1,21 +1,21 @@
 [gd_scene load_steps=10 format=3 uid="uid://bgc8t4cq8qr80"]
 
-[ext_resource type="Script" path="res://src/card_base.gd" id="1_a10om"]
-[ext_resource type="Shader" path="res://Assets/Cards/Materials/text_shader.gdshader" id="2_dfq6a"]
-[ext_resource type="Shader" path="res://Assets/Cards/Materials/text_shader_outline.gdshader" id="3_ypeg2"]
+[ext_resource type="Script" path="res://src/card_base.gd" id="1_gr6sc"]
+[ext_resource type="Shader" path="res://assets/Materials/text_shader.gdshader" id="2_3xhgk"]
+[ext_resource type="Shader" path="res://assets/Materials/text_shader_outline.gdshader" id="3_qiexs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3s52l"]
-shader = ExtResource("2_dfq6a")
+shader = ExtResource("2_3xhgk")
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_dvkvn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j3v31"]
-shader = ExtResource("3_ypeg2")
+shader = ExtResource("3_qiexs")
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_olpxg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ni8s7"]
-shader = ExtResource("3_ypeg2")
+shader = ExtResource("3_qiexs")
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_jyj1v"]
 
@@ -24,7 +24,7 @@ offset_right = 361.0
 offset_bottom = 612.0
 pivot_offset = Vector2(125, 225)
 mouse_default_cursor_shape = 6
-script = ExtResource("1_a10om")
+script = ExtResource("1_gr6sc")
 
 [node name="Card" type="Sprite2D" parent="."]
 centered = false

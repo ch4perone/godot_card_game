@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bgnu7ue8q30x5"
-path="res://.godot/imported/card_border_food.png-16d8f2f4573775500c13d9eeb26c4b99.ctex"
+path="res://.godot/imported/card_border_food.png-ff6e23d276902fd5bf00bc88ef6379ce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Cards/card_border_food.png"
-dest_files=["res://.godot/imported/card_border_food.png-16d8f2f4573775500c13d9eeb26c4b99.ctex"]
+source_file="res://assets/Cards/card_border_food.png"
+dest_files=["res://.godot/imported/card_border_food.png-ff6e23d276902fd5bf00bc88ef6379ce.ctex"]
 
 [params]
 
