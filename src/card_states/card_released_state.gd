@@ -1,11 +1,6 @@
 extends CardState
 
+func enter() -> void:
+	card_ui.color.color = Color.DARK_VIOLET
+	card_ui.state.text = "Released"
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

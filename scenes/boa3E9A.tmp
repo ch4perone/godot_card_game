@@ -17,6 +17,12 @@ scale = Vector2(2.39538, 1.68966)
 texture = ExtResource("1_ub1qw")
 centered = false
 
+[node name="CardBase" parent="." instance=ExtResource("2_rk3av")]
+offset_left = 712.0
+offset_top = 777.0
+offset_right = 1073.0
+offset_bottom = 1389.0
+
 [node name="CardDropArea" type="Area2D" parent="."]
 collision_layer = 2
 
@@ -48,5 +54,3 @@ layout_mode = 2
 
 [node name="CardUI3" parent="BoardUI/Hand" instance=ExtResource("3_pryqy")]
 layout_mode = 2
-
-[node name="CardBase" parent="." instance=ExtResource("2_rk3av")]
