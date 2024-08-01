@@ -2,7 +2,7 @@ extends MarginContainer
 
 
 @onready var cardDB = preload("res://Assets/Cards/cardsDB.gd")
-var card_id = "RosePetalTea"#"RosePetalTea"
+var card_id = "Rain"#"RosePetalTea"
 @onready var card_info = cardDB.DATA[cardDB.CARDS.get(card_id)]
 @onready var card_art_path = "res://Assets/Cards/Art/" + card_info["FILE"]
 @onready var card_border_path = "res://Assets/Cards/" + "card_border_" + card_info["TYPE"].to_lower() + ".png"

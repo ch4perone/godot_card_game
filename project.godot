@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="godot_card_game"
-run/main_scene="res://Cards/card_base.tscn"
+run/main_scene="res://src/card_base.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
