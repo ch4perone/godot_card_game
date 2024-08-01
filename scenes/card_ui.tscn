@@ -57,11 +57,13 @@ monitorable = false
 position = Vector2(100, 175)
 shape = SubResource("RectangleShape2D_mj0fh")
 
-[node name="CardStateMachine" type="Node" parent="."]
+[node name="CardStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_xudgx")
+initial_state = NodePath("CardBaseState")
 
 [node name="CardBaseState" type="Node" parent="CardStateMachine"]
 script = ExtResource("4_rbut0")
+state = null
 
 [node name="CardClickedState" type="Node" parent="CardStateMachine"]
 script = ExtResource("5_x8mih")

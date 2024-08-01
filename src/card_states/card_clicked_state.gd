@@ -1,11 +1,8 @@
 extends CardState
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func enter() -> void:
+	card_ui.color.color = Color.ORANGE
+	card_ui.state.text = "Clicked"
+	card_ui.drop_point_detector.monitoring = true
+	
