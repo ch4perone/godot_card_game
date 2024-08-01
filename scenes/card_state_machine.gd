@@ -32,11 +32,10 @@ func on_mouse_exited() -> void:
 	if current_state:
 		current_state.on_mouse_exited()
 
+
 func _on_transition_requested(from: CardState, to: CardState.State) -> void:
 	if from != current_state:
-		print("!from state is not current_state in card_state_machine")
-		print(from)
-		print(to)
+		print("!from state is not current_state   in card_state_machine")
 		return 
 	
 	var new_state: CardState = states[to]

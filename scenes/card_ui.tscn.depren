@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://r10julcyhqau" path="res://main_them.tres" id="1_07x4f"]
 [ext_resource type="Script" path="res://src/card_ui.gd" id="2_uopnf"]
 [ext_resource type="Script" path="res://Scenes/card_state_machine.gd" id="3_xudgx"]
-[ext_resource type="Script" path="res://src/card_base_state.gd" id="4_0kcx6"]
+[ext_resource type="Script" path="res://src/card_base_state.gd" id="4_y2ky7"]
 [ext_resource type="Script" path="res://src/card_states/card_clicked_state.gd" id="5_x8mih"]
 [ext_resource type="Script" path="res://src/card_states/card_dragging_state.gd" id="6_e180x"]
 [ext_resource type="Script" path="res://src/card_states/card_released_state.gd" id="7_ees0k"]
@@ -63,7 +63,7 @@ script = ExtResource("3_xudgx")
 initial_state = NodePath("CardBaseState")
 
 [node name="CardBaseState" type="Node" parent="CardStateMachine"]
-script = ExtResource("4_0kcx6")
+script = ExtResource("4_y2ky7")
 
 [node name="CardClickedState" type="Node" parent="CardStateMachine"]
 script = ExtResource("5_x8mih")
