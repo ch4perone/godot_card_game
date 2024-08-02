@@ -21,7 +21,7 @@ func _on_gui_input(event: InputEvent) -> void:
 	card_state_machine.on_gui_input(event)
 	
 func _on_mouse_entered() -> void:
-		card_state_machine.on_mouse_entered()
+	card_state_machine.on_mouse_entered()
 
 func _on_mouse_exited() -> void:
 	card_state_machine.on_mouse_exited()
