@@ -3,7 +3,8 @@ extends Control
 
 signal reparent_requested(which_card_ui: CardUI)
 
-
+@export var is_permanent: bool
+@onready var type_label: Label = $TypeLabel
 @onready var color: ColorRect = $ColorRect
 @onready var state: Label = $State
 @onready var drop_point_detector: Area2D = $DropPointDetector
@@ -13,6 +14,8 @@ signal reparent_requested(which_card_ui: CardUI)
 
 func _ready():
 	card_state_machine.init(self)
+	if is_permanent:
+		type_label.text = "Permanent"
 
 func _input(event: InputEvent) -> void:
 	card_state_machine.on_input(event)

@@ -13,7 +13,7 @@ metadata/_edit_lock_ = true
 
 [node name="Background" type="Sprite2D" parent="."]
 modulate = Color(0.535421, 0.535421, 0.535421, 1)
-position = Vector2(496, 181)
+position = Vector2(496, 50)
 scale = Vector2(2.39538, 1.68966)
 texture = ExtResource("1_ub1qw")
 centered = false
@@ -26,6 +26,16 @@ position = Vector2(1280, 400)
 shape = SubResource("RectangleShape2D_cfc57")
 
 [node name="BoardUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
+
+[node name="PermantBox" type="HBoxContainer" parent="BoardUI" groups=["ui_layer"]]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -500.0
+offset_top = 180.0
+offset_right = 500.0
+offset_bottom = 530.0
+grow_horizontal = 2
 
 [node name="Hand" type="HBoxContainer" parent="BoardUI"]
 anchors_preset = 7
@@ -47,8 +57,14 @@ layout_mode = 2
 
 [node name="CardUI2" parent="BoardUI/Hand" instance=ExtResource("3_pryqy")]
 layout_mode = 2
+is_permanent = true
 
 [node name="CardUI3" parent="BoardUI/Hand" instance=ExtResource("3_pryqy")]
 layout_mode = 2
+is_permanent = true
+
+[node name="CardUI4" parent="BoardUI/Hand" instance=ExtResource("3_pryqy")]
+layout_mode = 2
+is_permanent = true
 
 [node name="CardBase" parent="." instance=ExtResource("2_rk3av")]

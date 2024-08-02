@@ -34,7 +34,6 @@ func set_cardui():
 	$CardUI/TopVBoxContainer/TopBar/Name/CenterContainer/Name.z_index=1
 	
 	if "FLAVOR_TEXT" in card_info.keys():
-		print("flavor test")
 		var flavor_label = $CardUI/BottomVBoxContainer/BottomBar/VBoxContainer/FlavorText
 		flavor_label.push_italics()
 		flavor_label.append_text("\"" + card_info["FLAVOR_TEXT"] + "\"")#" [center]\"" + card_info["FLAVOR_TEXT"] + "\"[/center]")
