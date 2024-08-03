@@ -3,3 +3,4 @@
 [resource]
 default_base_scale = 1.0
 default_font_size = 20
+HBoxContainer/constants/separation = 20
