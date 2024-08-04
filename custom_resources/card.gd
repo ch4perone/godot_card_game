@@ -12,4 +12,4 @@ enum Target {SELF, SINGLE, ALL, EVERYONE}
 
 
 func is_single_targeted() -> bool:
-	return type == Target.SINGLE
+	return target == Target.SINGLE
