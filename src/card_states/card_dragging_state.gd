@@ -14,7 +14,8 @@ func enter() -> void:
 	threshold_timer.timeout.connect(func(): min_drag_time_elapsed = true)
 	
 	card_ui.color.color = Color.NAVY_BLUE
-	card_ui.state.text = "dragging"
+	card_ui.color.color.a = 0.5
+	card_ui.state.text = "DRAGGING"
 
 
 func on_input(event: InputEvent) -> void:

@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://27ucvrf8htk6"]
+[gd_scene load_steps=11 format=3 uid="uid://27ucvrf8htk6"]
 
 [ext_resource type="Texture2D" uid="uid://dhcjsisoh58of" path="res://assets/background/background.png" id="1_yi3mj"]
 [ext_resource type="Script" path="res://src/hand.gd" id="2_f61gj"]
 [ext_resource type="Theme" uid="uid://r10julcyhqau" path="res://main_them.tres" id="2_opk5u"]
-[ext_resource type="PackedScene" uid="uid://bgc8t4cq8qr80" path="res://scenes/card_base.tscn" id="2_rk3av"]
 [ext_resource type="PackedScene" uid="uid://dlxnc660jeoqk" path="res://scenes/card_target_selector.tscn" id="2_syquv"]
 [ext_resource type="PackedScene" uid="uid://dccu5k4igqc1r" path="res://scenes/card_ui.tscn" id="3_pryqy"]
 [ext_resource type="Resource" uid="uid://dy516sajo8yir" path="res://custom_resources/weather/sunshine.tres" id="5_py05h"]
@@ -80,5 +79,3 @@ is_permanent = true
 layout_mode = 2
 card = ExtResource("8_e2d3w")
 is_permanent = true
-
-[node name="CardBase" parent="." instance=ExtResource("2_rk3av")]

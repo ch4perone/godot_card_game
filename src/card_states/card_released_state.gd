@@ -4,7 +4,9 @@ var played: bool
 
 func enter() -> void:
 	card_ui.color.color = Color.DARK_VIOLET
-	card_ui.state.text = "Released"
+	card_ui.color.color.a = 0.5
+	card_ui.state.text = "RELEASE"
+	
 
 	played = false
 	

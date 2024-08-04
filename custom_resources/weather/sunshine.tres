@@ -7,3 +7,4 @@ script = ExtResource("1_gkj0x")
 id = "sunshine"
 type = 0
 target = 0
+texture_path = "res://assets/card_art/weather/sun.png"

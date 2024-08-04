@@ -7,3 +7,4 @@ script = ExtResource("1_3v5ci")
 id = "howl_of_the_cat"
 type = 1
 target = 1
+texture_path = "res://assets/card_art/environmental/howl_of_the_cat.png"

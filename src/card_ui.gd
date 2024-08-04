@@ -7,6 +7,7 @@ signal reparent_requested(which_card_ui: CardUI)
 @export var is_permanent: bool
 @onready var type_label: Label = $TypeLabel
 @onready var color: ColorRect = $ColorRect
+@onready var card_art: Sprite2D = $CardArt
 @onready var state: Label = $State
 @onready var drop_point_detector: Area2D = $DropPointDetector
 @onready var card_state_machine = $CardStateMachine as CardStateMachine
@@ -22,6 +23,11 @@ func _ready():
 		type_label.text += "\nPermanent"
 	else:
 		type_label.text +="\nInstant"
+	
+	if FileAccess.file_exists(card.texture_path):
+		card_art.texture = load(card.texture_path)
+		card_art.scale = size / card_art.texture.get_size()
+	
 func _input(event: InputEvent) -> void:
 	card_state_machine.on_input(event)
 

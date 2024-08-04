@@ -10,10 +10,10 @@
 [ext_resource type="Script" path="res://src/card_states/card_aiming_state.gd" id="8_4iwge"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mj0fh"]
-size = Vector2(200, 350)
+size = Vector2(280, 490)
 
 [node name="CardUI" type="Control"]
-custom_minimum_size = Vector2(200, 350)
+custom_minimum_size = Vector2(280, 490)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -69,7 +69,7 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DropPointDetector"]
 light_mask = 5
-position = Vector2(100, 175)
+position = Vector2(140, 245)
 shape = SubResource("RectangleShape2D_mj0fh")
 
 [node name="CardStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]

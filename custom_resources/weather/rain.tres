@@ -7,3 +7,4 @@ script = ExtResource("1_60vfk")
 id = "rain"
 type = 0
 target = 0
+texture_path = "res://assets/card_art/weather/rain.png"

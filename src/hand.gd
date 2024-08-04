@@ -1,6 +1,9 @@
 class_name Hand
 extends HBoxContainer
 
+func _input(_event):
+	if Input.is_action_pressed("quit_game"):
+		get_tree().quit()
 
 func _ready() -> void:
 	for child in get_children():

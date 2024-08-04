@@ -4,6 +4,7 @@ const MOUSE_Y_SNAPBACK_THRESHOLD := 1250
 
 func enter() -> void:
 	card_ui.color.color = Color.BISQUE
+	card_ui.color.color.a = 0.5
 	card_ui.state.text = "AIMING"
 	card_ui.drop_targets.clear()
 	
