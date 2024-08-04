@@ -17,9 +17,11 @@ var tween: Tween
 
 func _ready():
 	card_state_machine.init(self)
+	type_label.text = card.id
 	if is_permanent:
-		type_label.text = "Permanent"
-
+		type_label.text += "\nPermanent"
+	else:
+		type_label.text +="\nInstant"
 func _input(event: InputEvent) -> void:
 	card_state_machine.on_input(event)
 
@@ -40,3 +42,9 @@ func _on_drop_point_detector_area_entered(area) -> void:
 
 func _on_drop_point_detector_area_exited(area):
 	drop_targets.erase(area)
+
+
+func animate_to_position(new_position: Vector2, duration: float) -> void:
+	tween = create_tween().set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "global_position", new_position, duration)
+	

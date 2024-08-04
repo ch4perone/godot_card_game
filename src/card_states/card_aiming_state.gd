@@ -7,11 +7,11 @@ func enter() -> void:
 	card_ui.state.text = "AIMING"
 	card_ui.drop_targets.clear()
 	
-	var offset := Vector2(card_ui.parent.size.x / 2, - card_ui.size.y / 2)
+	var offset := Vector2(card_ui.parent.size.x / 2, - (card_ui.size.y / 2) - 100)
 	offset.x -= card_ui.size.x / 2
-	card_ui.animated_to_position(card_ui.parent.global_position + offset, 0.2)
+	card_ui.animate_to_position(card_ui.parent.global_position + offset, 0.2)
 	card_ui.drop_point_detector.monitoring = false
-	Events.card_aim_ended.emit(card_ui)
+	Events.card_aim_started.emit(card_ui)
 	
 	
 func exit() -> void:

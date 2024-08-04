@@ -18,9 +18,14 @@ func enter() -> void:
 
 
 func on_input(event: InputEvent) -> void:
+	var single_targeted := card_ui.card.is_single_targeted()
 	var mouse_motion := event is InputEventMouseMotion
 	var cancel = event.is_action_pressed("right_mouse")
 	var confirm = event.is_action_released("left_mouse")	
+	
+	if single_targeted and mouse_motion and card_ui.drop_targets.size() > 0:
+		transition_requested.emit(self, CardState.State.AIMING)
+		return
 	
 	if mouse_motion:
 		card_ui.global_position = card_ui.get_global_mouse_position() - card_ui.pivot_offset
