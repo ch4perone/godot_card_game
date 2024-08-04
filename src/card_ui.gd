@@ -3,6 +3,7 @@ extends Control
 
 signal reparent_requested(which_card_ui: CardUI)
 
+@export var card: Card
 @export var is_permanent: bool
 @onready var type_label: Label = $TypeLabel
 @onready var color: ColorRect = $ColorRect
@@ -11,6 +12,8 @@ signal reparent_requested(which_card_ui: CardUI)
 @onready var card_state_machine = $CardStateMachine as CardStateMachine
 @onready var drop_targets: Array[Node] = []
 
+var parent: Control
+var tween: Tween
 
 func _ready():
 	card_state_machine.init(self)

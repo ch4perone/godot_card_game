@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dccu5k4igqc1r"]
+[gd_scene load_steps=10 format=3 uid="uid://dccu5k4igqc1r"]
 
 [ext_resource type="Theme" uid="uid://r10julcyhqau" path="res://main_them.tres" id="1_07x4f"]
 [ext_resource type="Script" path="res://src/card_ui.gd" id="2_uopnf"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://src/card_states/card_clicked_state.gd" id="5_x8mih"]
 [ext_resource type="Script" path="res://src/card_states/card_dragging_state.gd" id="6_e180x"]
 [ext_resource type="Script" path="res://src/card_states/card_released_state.gd" id="7_ees0k"]
+[ext_resource type="Script" path="res://src/card_states/card_aiming_state.gd" id="8_4iwge"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mj0fh"]
 size = Vector2(200, 350)
@@ -23,6 +24,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_07x4f")
 script = ExtResource("2_uopnf")
+
+[node name="CardArt" type="Sprite2D" parent="."]
+centered = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -60,6 +64,7 @@ grow_vertical = 2
 text = "Instant"
 
 [node name="DropPointDetector" type="Area2D" parent="."]
+collision_layer = 5
 collision_mask = 2
 monitorable = false
 
@@ -85,6 +90,10 @@ state = 2
 [node name="CardReleasedState" type="Node" parent="CardStateMachine"]
 script = ExtResource("7_ees0k")
 state = 4
+
+[node name="CardAimingState" type="Node" parent="CardStateMachine"]
+script = ExtResource("8_4iwge")
+state = 3
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
