@@ -11,7 +11,7 @@
 [ext_resource type="Resource" uid="uid://bd6iyt786creg" path="res://custom_resources/environmental/morning_dew.tres" id="8_e2d3w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cfc57"]
-size = Vector2(2560, 800)
+size = Vector2(2560, 667)
 
 [node name="Board" type="Node2D"]
 metadata/_edit_lock_ = true
@@ -26,7 +26,7 @@ centered = false
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea"]
-position = Vector2(1280, 400)
+position = Vector2(1280, 330)
 shape = SubResource("RectangleShape2D_cfc57")
 debug_color = Color(0, 0.6, 0.701961, 0.133333)
 
@@ -38,9 +38,9 @@ debug_color = Color(0, 0.6, 0.701961, 0.133333)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -500.0
+offset_left = -700.0
 offset_top = 180.0
-offset_right = 500.0
+offset_right = 700.0
 offset_bottom = 530.0
 grow_horizontal = 2
 theme = ExtResource("2_opk5u")
@@ -51,9 +51,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -500.0
-offset_top = -350.0
-offset_right = 500.0
+offset_left = -590.0
+offset_top = -530.0
+offset_right = 590.0
+offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 8

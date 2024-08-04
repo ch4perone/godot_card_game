@@ -7,8 +7,10 @@ func enter() -> void:
 	card_ui.color.color.a = 0.5
 	card_ui.state.text = "RELEASE"
 	
-
 	played = false
+	
+	if card_ui.tween and card_ui.tween.is_running():
+		card_ui.tween.kill()
 	
 	if not card_ui.drop_targets.is_empty():
 		played = true

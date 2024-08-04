@@ -4,11 +4,16 @@ func enter() -> void:
 	if not card_ui.is_node_ready():
 		await card_ui.ready
 
+	
+	if card_ui.tween and card_ui.tween.is_running():
+		card_ui.tween.kill()
+	
 	card_ui.reparent_requested.emit(card_ui)
 	card_ui.color.color = Color.SEA_GREEN
 	card_ui.color.color.a = 0.5
 	card_ui.state.text = "BASE"
 	card_ui.pivot_offset = Vector2.ZERO
+	
 	
 
 
