@@ -5,6 +5,9 @@ signal stats_changed
 
 @export var starting_deck : CardPile
 @export var cards_per_turn := 3
+@export var starting_fortune := 0
+@export var starting_temperature := 20
+
 #@export var soil_humindity := 0.5
 
 var fortune : int : set = set_fortune
@@ -30,8 +33,8 @@ func create_instance() -> Resource:
 	instance.draw_pile = CardPile.new()
 	instance.discard_pile = CardPile.new()
 	
-	instance.fortune = 0
-	instance.temperature = 15 
+	instance.fortune = starting_fortune
+	instance.temperature = starting_temperature
 	return instance
 	
 func can_play_card(card: Card):
