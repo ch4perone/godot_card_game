@@ -7,6 +7,6 @@ uniform float time : hint_range(0, 10);
 
 void fragment() {
 	COLOR = texture(TEXTURE, UV);
-	float shine = step(1.0 - shine_size * 0.5, 0.5 + 0.5 * sin(UV.x - UV.y + TIME * shine_speed));
+	float shine = step(1.0 - shine_size * 0.5, 0.5 + 0.5 * sin(UV.x - UV.y + time * shine_speed));
 	COLOR.rgb = mix(COLOR.rgb, shine_color.rgb, shine * shine_color.a);
 }

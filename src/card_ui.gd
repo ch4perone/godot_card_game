@@ -73,12 +73,12 @@ func animate_to_position(new_position: Vector2, duration: float) -> void:
 	
 func add_shimmer():
 	shimmer_enabled = true
-	shimmer_material.set_shader_parameter("shine_color", Color(1, 1, 1, 0.5))
+	if shimmer_material:
+		shimmer_material.set_shader_parameter("time", 0.0)
 
 func remove_shimmer():
 	shimmer_enabled = false
 	if shimmer_material:
-		shimmer_material.set_shader_parameter("shine_color", Color(1, 1, 1, 0))
 		shimmer_material.set_shader_parameter("time", 0.0)
 
 func _process(delta):
