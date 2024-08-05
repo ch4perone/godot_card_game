@@ -1,6 +1,11 @@
-[gd_resource type="Theme" format=3 uid="uid://r10julcyhqau"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://r10julcyhqau"]
+
+[ext_resource type="FontFile" uid="uid://d1hdvd6wmoho6" path="res://global/Ubuntu_Mono/UbuntuMono-Regular.ttf" id="1_71aoj"]
 
 [resource]
 default_base_scale = 1.0
-default_font_size = 20
+default_font = ExtResource("1_71aoj")
+default_font_size = 25
+Fonts/fonts/large = ExtResource("1_71aoj")
+Fonts/fonts/normal = ExtResource("1_71aoj")
 HBoxContainer/constants/separation = 20

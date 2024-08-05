@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://4qcd1mchyed0"]
+
+[ext_resource type="Shader" path="res://assets/Materials/text_shader.gdshader" id="1_0c3dl"]
+[ext_resource type="Script" path="res://src/player.gd" id="1_w4a4e"]
+[ext_resource type="PackedScene" uid="uid://cibou14hy06ki" path="res://scenes/stats_ui.tscn" id="2_2xf6a"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_10ui3"]
+shader = ExtResource("1_0c3dl")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_jhogx"]
+specular_color = Color(0, 0, 0, 1)
+
+[node name="Player" type="Node2D" groups=["player"]]
+script = ExtResource("1_w4a4e")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_10ui3")
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_right = 250.0
+offset_bottom = 200.0
+grow_horizontal = 2
+texture = SubResource("CanvasTexture_jhogx")
+
+[node name="StatsUI" parent="." instance=ExtResource("2_2xf6a")]

@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://cibou14hy06ki"]
+
+[ext_resource type="Script" path="res://src/stats_ui.gd" id="1_5iva7"]
+[ext_resource type="Texture2D" uid="uid://catf1hei0ct1" path="res://assets/icons/temperature_icon.png" id="1_st5lf"]
+[ext_resource type="Theme" uid="uid://r10julcyhqau" path="res://main_them.tres" id="2_eqjjp"]
+[ext_resource type="Texture2D" uid="uid://d2ckxagrkac8p" path="res://assets/icons/clover_icon.png" id="3_03fwi"]
+
+[node name="StatsUI" type="HBoxContainer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_right = 250.0
+offset_bottom = 200.0
+grow_horizontal = 2
+script = ExtResource("1_5iva7")
+
+[node name="Temperature" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Temperature"]
+layout_mode = 2
+texture = ExtResource("1_st5lf")
+expand_mode = 3
+
+[node name="TemperatureLabel" type="Label" parent="Temperature/TextureRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -21.0
+offset_top = -64.0
+offset_right = 19.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_eqjjp")
+theme_override_font_sizes/font_size = 35
+text = "15"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Fortune" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="FortuneLabel" type="Label" parent="Fortune"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_eqjjp")
+theme_override_font_sizes/font_size = 50
+text = "5"
+
+[node name="TextureRect" type="TextureRect" parent="Fortune"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("3_03fwi")
+expand_mode = 1
