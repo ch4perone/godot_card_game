@@ -9,6 +9,7 @@ enum Target {SELF, SINGLE, ALL, EVERYONE}
 @export var id: String
 @export var type: Type
 @export var target: Target
+@export var value: int
 @export_file("*.png") var texture_path: String
 
 

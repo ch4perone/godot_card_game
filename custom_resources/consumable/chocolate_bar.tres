@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://dhulgo6275m2p"]
+
+[ext_resource type="Script" path="res://custom_resources/card.gd" id="1_qh2pi"]
+
+[resource]
+script = ExtResource("1_qh2pi")
+id = "chocolate_bar"
+type = 2
+target = 0
+texture_path = "res://assets/card_art/consumable/chocolate_bar.png"

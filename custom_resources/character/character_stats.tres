@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Stats" load_steps=3 format=3 uid="uid://cyifqlnb0q4in"]
+
+[ext_resource type="Script" path="res://custom_resources/stats.gd" id="1_1jdeb"]
+[ext_resource type="Resource" uid="uid://d00xq3ygflgam" path="res://custom_resources/character/starting_deck.tres" id="2_qawte"]
+
+[resource]
+script = ExtResource("1_1jdeb")
+starting_deck = ExtResource("2_qawte")
+cards_per_turn = 3

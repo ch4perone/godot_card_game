@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://buo20or3k8qa6"]
+
+[ext_resource type="Script" path="res://custom_resources/card.gd" id="1_1m20a"]
+
+[resource]
+script = ExtResource("1_1m20a")
+id = "drip_coffee"
+type = 2
+target = 0
+texture_path = "res://assets/card_art/consumable/drip.png"
