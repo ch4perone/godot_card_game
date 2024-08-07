@@ -54,6 +54,7 @@ func _on_card_aim_started(card: CardUI) -> void:
 func _on_card_aim_ended(_card: CardUI) -> void:
 	print("Card aim ended")
 	targeting = false
+	pointer.visible = false
 	card_arc.clear_points()
 	area_2d.position = Vector2.ZERO
 	area_2d.monitorable = false

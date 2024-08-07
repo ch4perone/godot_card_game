@@ -81,6 +81,7 @@ func _on_mouse_exited() -> void:
 	card_state_machine.on_mouse_exited()
 	remove_shimmer()
 	if not is_glowing_strong:
+		print("exit registered")
 		remove_glow()
 
 func _on_drop_point_detector_area_entered(area) -> void:
