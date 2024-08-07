@@ -21,7 +21,8 @@ func enter() -> void:
 			if ui_layer:
 				print("Reparented to ui_layer: ", ui_layer)
 				card_ui.reparent(ui_layer)
-
+		
+		card_ui.remove_glow()
 
 func on_input(_event: InputEvent):
 	if played:

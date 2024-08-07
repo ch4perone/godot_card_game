@@ -13,7 +13,7 @@ func enter() -> void:
 	card_ui.color.color.a = 0.5
 	card_ui.state.text = "BASE"
 	card_ui.pivot_offset = Vector2.ZERO
-	
+	#card_ui.remove_glow()
 	
 
 

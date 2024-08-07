@@ -15,9 +15,13 @@ func enter() -> void:
 	card_ui.drop_point_detector.monitoring = false
 	Events.card_aim_started.emit(card_ui)
 	
+	card_ui.add_strong_glow()
 	
 func exit() -> void:
 	Events.card_aim_ended.emit(card_ui)
+	if card_ui.is_glowing_strong:
+		card_ui.is_glowing_strong = false
+		card_ui.remove_glow()
 	
 func on_input(event: InputEvent):
 	var mouse_motion := event as InputEventMouseMotion
