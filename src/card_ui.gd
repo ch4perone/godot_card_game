@@ -88,15 +88,21 @@ func _on_drop_point_detector_area_entered(area) -> void:
 		print("Collision with card drop area")
 		if not drop_targets.has(area):
 			drop_targets.append(area)
-			add_strong_glow()
+			if card_state_machine.current_state.state == CardState.State.DRAGGING:
+				add_strong_glow()
 	elif area.is_in_group("card_target_selector"):
 		print("Collision with card targeting system")
+		if not is_glowing_strong:
+			add_glow()
 		
 func _on_drop_point_detector_area_exited(area):
 	drop_targets.erase(area)
-	if is_glowing_strong:
+	if area.is_in_group("card_drop_area") and is_glowing_strong:
 		is_glowing_strong = false
 		add_glow()
+	elif area.is_in_group("card_target_selector"):
+		if not is_glowing_strong:
+			remove_glow()
 
 func animate_to_position(new_position: Vector2, duration: float) -> void:
 	tween = create_tween().set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)
