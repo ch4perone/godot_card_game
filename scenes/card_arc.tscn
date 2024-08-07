@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://mst0iegr5can"]
+[gd_scene load_steps=3 format=3 uid="uid://mst0iegr5can"]
 
 [sub_resource type="Curve" id="Curve_p4q20"]
 max_value = 10.0
 _data = [Vector2(0, 0.1), 0.0, 0.0, 0, 0, Vector2(0.819129, 0.466308), 0.0, 0.0, 0, 0, Vector2(1, 0.25045), 0.0, 0.0, 0, 0]
 point_count = 3
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_kcotv"]
+
 [node name="CardArc" type="Line2D"]
 width_curve = SubResource("Curve_p4q20")
-default_color = Color(0, 0.647059, 0, 1)
+default_color = Color(0.877152, 0.283752, 0.453057, 1)
+texture = SubResource("CanvasTexture_kcotv")

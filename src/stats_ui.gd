@@ -15,12 +15,12 @@ func update_stats(stats: Stats) -> void:
 	fortune_label.text = str(stats.fortune)
 
 
-func temperature_to_color(temperature: float) -> Color:
+func temperature_to_color(temp: float) -> Color:
 	var color: Color
-	if temperature >= 20:
-		color = Color.ORANGE.lerp(Color.RED, (temperature - 20) / 10.0)
-	elif temperature >= 10:
-		color = Color.YELLOW.lerp(Color.ORANGE, (temperature - 10) / 10.0)
+	if temp >= 20:
+		color = Color.ORANGE.lerp(Color.RED, (temp - 20) / 10.0)
+	elif temp >= 10:
+		color = Color.YELLOW.lerp(Color.ORANGE, (temp - 10) / 10.0)
 	else:
-		color = Color.BLUE.lerp(Color.YELLOW, temperature / 10.0)
+		color = Color.BLUE.lerp(Color.YELLOW, temp / 10.0)
 	return color

@@ -7,4 +7,5 @@ script = ExtResource("1_qh2pi")
 id = "chocolate_bar"
 type = 2
 target = 0
+value = 0
 texture_path = "res://assets/card_art/consumable/chocolate_bar.png"

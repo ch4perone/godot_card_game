@@ -13,7 +13,9 @@ signal reparent_requested(which_card_ui: CardUI)
 @onready var card_state_machine = $CardStateMachine as CardStateMachine
 @onready var drop_targets: Array[Node] = []
 @export var base_shimmer_material: ShaderMaterial
+@export var base_glow_material: ShaderMaterial
 
+var glow_material: ShaderMaterial
 var shimmer_material: ShaderMaterial
 var shimmer_enabled := false
 var shimmer_time := 0.0
@@ -32,11 +34,16 @@ func _ready():
 		card_art.texture = load(card.texture_path)
 		card_art.scale = size / card_art.texture.get_size()
 	
+	glow_material = base_glow_material.duplicate()
+	if glow_material:
+		glow_material.set_shader_parameter("outline_color", Color(1, 0, 0, 0.5))
+	
 	shimmer_material = base_shimmer_material.duplicate()
 	if shimmer_material:
 		shimmer_material.set_shader_parameter("time", 0.0)
 		shimmer_material.set_shader_parameter("shine_color", Color(1, 1, 1, 0.5))
-		shimmer_material.set_shader_parameter("shine_speed", 2.0)
+		shimmer_material.set_shader_parameter("shine_speed", 4)
+		shimmer_material.set_shader_parameter("shine_size", 0.01)
 		card_art.material = shimmer_material
 	
 	remove_shimmer()
@@ -50,10 +57,12 @@ func _on_gui_input(event: InputEvent) -> void:
 func _on_mouse_entered() -> void:
 	card_state_machine.on_mouse_entered()
 	add_shimmer()
+	#add_glow()
 
 func _on_mouse_exited() -> void:
 	card_state_machine.on_mouse_exited()
 	remove_shimmer()
+	#remove_glow()
 
 func _on_drop_point_detector_area_entered(area) -> void:
 	if area.is_in_group("card_drop_area"): 
@@ -75,11 +84,20 @@ func add_shimmer():
 	shimmer_enabled = true
 	if shimmer_material:
 		shimmer_material.set_shader_parameter("time", 0.0)
+	card_art.material = shimmer_material
 
 func remove_shimmer():
+	card_art.material = null
 	shimmer_enabled = false
 	if shimmer_material:
 		shimmer_material.set_shader_parameter("time", 0.0)
+
+func add_glow():
+	card_art.material = glow_material
+
+func remove_glow():
+	card_art.material = null
+
 
 func _process(delta):
 	if shimmer_enabled and shimmer_material:

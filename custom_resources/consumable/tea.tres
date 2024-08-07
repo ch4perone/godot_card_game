@@ -7,4 +7,5 @@ script = ExtResource("1_ugnv0")
 id = "tea"
 type = 2
 target = 0
+value = 0
 texture_path = "res://assets/card_art/consumable/tea.png"

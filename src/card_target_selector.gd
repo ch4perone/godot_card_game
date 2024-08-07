@@ -2,23 +2,24 @@ extends Node2D
 
 const ARC_POINTS := 50
 
-@onready var area_2d: Area2D = $Area2D
+@onready var area_2d: Area2D = $CanvasLayer/Area2D
 @onready var card_arc: Line2D = $CanvasLayer/CardArc
-
+@onready var pointer: TextureRect = $CanvasLayer/Area2D/Pointer
 var current_card: CardUI
 var targeting := false
 
 func _ready() -> void:
 	Events.card_aim_started.connect(_on_card_aim_started)
 	Events.card_aim_ended.connect(_on_card_aim_ended)
+	pointer.visible = false
+	pointer.modulate = card_arc.default_color
 	
 func _process(_delta):
 	if not targeting:
 		return
 	
 	area_2d.position = get_local_mouse_position()
-	card_arc.points = _get_points()	
-
+	card_arc.points = _get_points()
 
 func _get_points() -> Array:
 	var points := []
@@ -50,7 +51,7 @@ func _on_card_aim_started(card: CardUI) -> void:
 	area_2d.monitorable = true
 	current_card = card
 
-func _on_card_aim_ended(card: CardUI) -> void:
+func _on_card_aim_ended(_card: CardUI) -> void:
 	print("Card aim ended")
 	targeting = false
 	card_arc.clear_points()
@@ -66,9 +67,12 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		return
 	if not current_card.drop_targets.has(area):
 		current_card.drop_targets.append(area)
+	pointer.visible = true
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	print("Target selector exited collision area")
 	if not current_card or not targeting:
 		return
 	current_card.drop_targets.erase(area)
+	if current_card.drop_targets.is_empty():
+		pointer.visible = false

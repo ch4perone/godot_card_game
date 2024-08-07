@@ -32,11 +32,11 @@ position = Vector2(1280, 330)
 shape = SubResource("RectangleShape2D_cfc57")
 debug_color = Color(0, 0.6, 0.701961, 0.133333)
 
-[node name="CardTargetSelector" parent="." instance=ExtResource("2_syquv")]
-
 [node name="Player" parent="." instance=ExtResource("3_elu8h")]
 position = Vector2(1280, 0)
 stats = ExtResource("4_dvd7h")
+
+[node name="CardTargetSelector" parent="." instance=ExtResource("2_syquv")]
 
 [node name="BoardUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
 

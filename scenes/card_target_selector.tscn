@@ -1,25 +1,40 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlxnc660jeoqk"]
+[gd_scene load_steps=5 format=3 uid="uid://dlxnc660jeoqk"]
 
 [ext_resource type="PackedScene" uid="uid://mst0iegr5can" path="res://scenes/card_arc.tscn" id="1_n6yoi"]
 [ext_resource type="Script" path="res://src/card_target_selector.gd" id="1_rxex2"]
+[ext_resource type="Texture2D" uid="uid://bb5ck84m2flhs" path="res://assets/icons/pointer.svg" id="3_7lcpt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qamy"]
 
 [node name="CardTargetSelector" type="Node2D"]
 script = ExtResource("1_rxex2")
 
-[node name="Area2D" type="Area2D" parent="." groups=["card_target_selector"]]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer" groups=["card_target_selector"]]
 collision_mask = 4
 monitoring = false
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Area2D"]
 shape = SubResource("RectangleShape2D_0qamy")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 2
+[node name="Pointer" type="TextureRect" parent="CanvasLayer/Area2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_7lcpt")
 
 [node name="CardArc" parent="CanvasLayer" instance=ExtResource("1_n6yoi")]
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="area_entered" from="CanvasLayer/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="CanvasLayer/Area2D" to="." method="_on_area_2d_area_exited"]
