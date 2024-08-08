@@ -9,3 +9,4 @@ type = 1
 target = 1
 value = 0
 texture_path = "res://assets/card_art/environmental/howl_of_the_cat.png"
+tooltip_text = ""

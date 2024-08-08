@@ -9,3 +9,4 @@ type = 1
 target = 0
 value = 0
 texture_path = "res://assets/card_art/environmental/morning_dew.png"
+tooltip_text = ""

@@ -1,27 +1,65 @@
-[gd_scene load_steps=5 format=3 uid="uid://cibou14hy06ki"]
+[gd_scene load_steps=7 format=3 uid="uid://cibou14hy06ki"]
 
 [ext_resource type="Script" path="res://src/stats_ui.gd" id="1_5iva7"]
 [ext_resource type="Texture2D" uid="uid://catf1hei0ct1" path="res://assets/icons/temperature_icon.png" id="1_st5lf"]
+[ext_resource type="Texture2D" uid="uid://doi8yfn2oktbc" path="res://assets/icons/apple-svgrepo-com.svg" id="2_5jj3b"]
 [ext_resource type="Theme" uid="uid://r10julcyhqau" path="res://main_them.tres" id="2_eqjjp"]
 [ext_resource type="Texture2D" uid="uid://d2ckxagrkac8p" path="res://assets/icons/clover_icon.png" id="3_03fwi"]
+[ext_resource type="Texture2D" uid="uid://cs7rxox6nygbm" path="res://assets/icons/raindrop_icon.svg" id="4_pq7vf"]
 
 [node name="StatsUI" type="HBoxContainer"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -250.0
-offset_right = 250.0
-offset_bottom = 200.0
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -20.0
+offset_right = 39.0
+offset_bottom = 180.0
 grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("1_5iva7")
+
+[node name="LeftMarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(930, 0)
+layout_mode = 2
+
+[node name="Orchard" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Orchard"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("2_5jj3b")
+expand_mode = 3
+
+[node name="OrchardLabel" type="Label" parent="Orchard/TextureRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -49.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_eqjjp")
+theme_override_font_sizes/font_size = 35
+text = "15"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Temperature" type="HBoxContainer" parent="."]
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="Temperature"]
+self_modulate = Color(0.944089, 0.654758, 0, 1)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+size_flags_horizontal = 4
 texture = ExtResource("1_st5lf")
-expand_mode = 3
+expand_mode = 2
 
 [node name="TemperatureLabel" type="Label" parent="Temperature/TextureRect"]
 unique_name_in_owner = true
@@ -31,10 +69,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -21.0
-offset_top = -64.0
-offset_right = 19.0
-offset_bottom = -15.0
+offset_left = -20.0
+offset_top = -49.0
+offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("2_eqjjp")
@@ -42,6 +79,40 @@ theme_override_font_sizes/font_size = 35
 text = "15"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Humidity" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Humidity"]
+self_modulate = Color(0.00910124, 0.367432, 0.6684, 1)
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("4_pq7vf")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="HumidityLabel" type="Label" parent="Humidity/TextureRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -49.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_eqjjp")
+theme_override_font_sizes/font_size = 35
+text = "15"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RightMarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(950, 0)
+layout_mode = 2
 
 [node name="Fortune" type="HBoxContainer" parent="."]
 layout_mode = 2

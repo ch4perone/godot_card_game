@@ -6,12 +6,12 @@
 [ext_resource type="Script" path="res://src/card_state_machine.gd" id="3_ypytd"]
 [ext_resource type="Script" path="res://src/card_base_state.gd" id="4_0kcx6"]
 [ext_resource type="Shader" path="res://assets/materials/glow_outline_shader.gdshader" id="4_bqh6l"]
-[ext_resource type="StyleBox" uid="uid://dxbvbka6eyeb3" path="res://scenes/card_glow_stylebox.tres" id="5_o0jyh"]
 [ext_resource type="Script" path="res://src/card_states/card_clicked_state.gd" id="5_x8mih"]
+[ext_resource type="StyleBox" uid="uid://dxbvbka6eyeb3" path="res://scenes/skyboxes/card_glow_stylebox.tres" id="5_xgjv1"]
 [ext_resource type="Script" path="res://src/card_states/card_dragging_state.gd" id="6_e180x"]
+[ext_resource type="StyleBox" uid="uid://dqr6qlh17w66b" path="res://scenes/skyboxes/card_border_stylebox.tres" id="6_vvy5b"]
 [ext_resource type="Script" path="res://src/card_states/card_released_state.gd" id="7_ees0k"]
 [ext_resource type="Script" path="res://src/card_states/card_aiming_state.gd" id="8_4iwge"]
-[ext_resource type="StyleBox" uid="uid://dqr6qlh17w66b" path="res://scenes/card_border_stylebox.tres" id="11_4llro"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dqj72"]
 shader = ExtResource("3_umuj2")
@@ -51,7 +51,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_styles/panel = ExtResource("5_o0jyh")
+theme_override_styles/panel = ExtResource("5_xgjv1")
 
 [node name="CardArt" type="Sprite2D" parent="."]
 centered = false
@@ -64,7 +64,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_styles/panel = ExtResource("11_4llro")
+theme_override_styles/panel = ExtResource("6_vvy5b")
 
 [node name="Value" type="RichTextLabel" parent="."]
 layout_mode = 1

@@ -3,9 +3,9 @@ extends Control
 
 signal reparent_requested(which_card_ui: CardUI)
 
-const GLOW_FAINT_STYLE_BOX := preload("res://scenes/card_glow_faint_stylebox.tres")
-const GLOW_STYLE_BOX := preload("res://scenes/card_glow_stylebox.tres")
-const GLOW_STRONG_STYLE_BOX := preload("res://scenes/card_glow_strong_stylebox.tres")
+const GLOW_FAINT_STYLE_BOX := preload("res://scenes/skyboxes/card_glow_faint_stylebox.tres")
+const GLOW_STYLE_BOX := preload("res://scenes/skyboxes/card_glow_stylebox.tres")
+const GLOW_STRONG_STYLE_BOX := preload("res://scenes/skyboxes/card_glow_strong_stylebox.tres")
 
 
 @export var card: Card : set = _set_card
@@ -81,7 +81,6 @@ func _on_mouse_exited() -> void:
 	card_state_machine.on_mouse_exited()
 	remove_shimmer()
 	if not is_glowing_strong:
-		print("exit registered")
 		remove_glow()
 
 func _on_drop_point_detector_area_entered(area) -> void:
