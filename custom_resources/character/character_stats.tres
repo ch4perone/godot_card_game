@@ -7,5 +7,7 @@
 script = ExtResource("1_1jdeb")
 starting_deck = ExtResource("2_qawte")
 cards_per_turn = 3
-starting_fortune = 5
-starting_temperature = 15
+starting_fortune = 3
+starting_temperature = 20.0
+starting_humidity = 60.0
+starting_orchard = 1

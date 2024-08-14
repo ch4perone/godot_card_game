@@ -4,11 +4,11 @@ extends Resource
 signal stats_changed
 
 @export var starting_deck : CardPile
-@export var cards_per_turn := 3
-@export var starting_fortune := 0
-@export var starting_temperature := 15.0
-@export var starting_humidity := 50.0
-@export var starting_orchard := 0
+@export var cards_per_turn : int
+@export var starting_fortune : int
+@export var starting_temperature : float
+@export var starting_humidity : float
+@export var starting_orchard : int
 
 #@export var soil_humindity := 0.5
 
@@ -26,6 +26,7 @@ func set_fortune(value: int) -> void:
 
 func change_fortune(value: int):
 	self.fortune += value
+	stats_changed.emit()
 	
 func set_temperature(value: float) -> void:
 	temperature = value

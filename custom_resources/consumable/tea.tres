@@ -7,6 +7,7 @@ script = ExtResource("1_ugnv0")
 id = "tea"
 type = 2
 target = 0
+is_permanent = false
 value = 0
 texture_path = "res://assets/card_art/consumable/tea.png"
 tooltip_text = ""

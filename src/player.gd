@@ -43,3 +43,4 @@ func change_temperature(value: float):
 
 func change_humidity(value: float):
 	stats.set_humidity(stats.humidity + value)
+

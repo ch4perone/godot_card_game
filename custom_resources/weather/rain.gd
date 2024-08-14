@@ -5,4 +5,4 @@ func apply_effects(targets: Array[Node]):
 	
 	changed_temperature_effect.value = -2.0
 	changed_temperature_effect.execute(targets)
-	print("In rain")
+

@@ -34,9 +34,11 @@ func _get_targets(targets: Array[Node]) -> Array[Node]:
 		_:
 			return []
 
-func play(targets: Array[Node], stats: Stats) -> void:
+func play(targets: Array[Node]) -> void: # In tutorial this also gets stats, but it didn't work so I access player instead
 	Events.card_played.emit(self)
-	stats.fortune += value
+	var tree := targets[0].get_tree()
+	var player := tree.get_nodes_in_group("player")[0]
+	player.change_fortune(value)
 	
 	if is_single_targeted():
 		apply_effects(targets)

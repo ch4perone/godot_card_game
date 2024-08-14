@@ -9,7 +9,6 @@ const GLOW_STRONG_STYLE_BOX := preload("res://scenes/skyboxes/card_glow_strong_s
 
 
 @export var card: Card : set = _set_card
-@export var stats: Stats
 
 @onready var type_label: Label = $TypeLabel
 @onready var color: ColorRect = $ColorRect
@@ -50,7 +49,7 @@ func _ready():
 func play() -> void:
 	if not card:
 		return
-	card.play(drop_targets, stats)
+	card.play(drop_targets)
 	
 	if not card.is_permanent:
 		queue_free() # TODO add to discard pile
