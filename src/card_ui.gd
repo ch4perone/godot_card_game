@@ -9,7 +9,8 @@ const GLOW_STRONG_STYLE_BOX := preload("res://scenes/skyboxes/card_glow_strong_s
 
 
 @export var card: Card : set = _set_card
-@export var is_permanent: bool
+@export var stats: Stats
+
 @onready var type_label: Label = $TypeLabel
 @onready var color: ColorRect = $ColorRect
 @onready var value_label = $Value
@@ -35,11 +36,6 @@ var tween: Tween
 
 func _ready():
 	card_state_machine.init(self)
-	if is_permanent:
-		type_label.text += "\nPermanent"
-	else:
-		type_label.text +="\nInstant"
-	
 	shimmer_material = base_shimmer_material.duplicate()
 	if shimmer_material:
 		shimmer_material.set_shader_parameter("time", 0.0)
@@ -51,6 +47,13 @@ func _ready():
 	remove_shimmer()
 	remove_glow()
 
+func play() -> void:
+	if not card:
+		return
+	card.play(drop_targets, stats)
+	
+	if not card.is_permanent:
+		queue_free() # TODO add to discard pile
 
 func _set_card(value: Card) -> void:
 	if not is_node_ready():
@@ -62,7 +65,10 @@ func _set_card(value: Card) -> void:
 		card_art.texture = load(card.texture_path)
 		card_art.scale = size / card_art.texture.get_size()
 	value_label.text = str(card.value)
-	
+	if card.is_permanent:
+		type_label.text += "\nPermanent"
+	else:
+		type_label.text +="\nInstant"
 	
 func _input(event: InputEvent) -> void:
 	card_state_machine.on_input(event)

@@ -8,7 +8,7 @@ extends Node2D
 
 	
 func _ready() -> void:
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.2).timeout
 	update_player() # workaround for correct display of statsUI
 
 func set_character_stats(value: Stats) -> void:
@@ -32,8 +32,14 @@ func update_player() -> void:
 func update_stats() -> void:
 	stats_ui.update_stats(stats)
 	
-	
 func change_fortune(value: int):
 	stats.change_fortune(value)
 	
 	# Some queue free code in the tutorial | probably not necessary here
+
+func change_temperature(value: float):
+	print("Change temperature")
+	stats.set_temperature(stats.temperature + value)
+
+func change_humidity(value: float):
+	stats.set_humidity(stats.humidity + value)

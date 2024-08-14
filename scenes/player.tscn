@@ -9,7 +9,7 @@
 script = ExtResource("1_w4a4e")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-self_modulate = Color(0.690196, 0.552941, 0.341176, 1)
+self_modulate = Color(0.342341, 0.260464, 0.139326, 0.517647)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5

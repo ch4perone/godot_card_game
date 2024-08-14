@@ -71,18 +71,19 @@ script = ExtResource("2_f61gj")
 [node name="CardUI" parent="BoardUI/Hand" instance=ExtResource("3_pryqy")]
 layout_mode = 2
 card = ExtResource("5_py05h")
+stats = ExtResource("4_dvd7h")
 
 [node name="CardUI2" parent="BoardUI/Hand" instance=ExtResource("3_pryqy")]
 layout_mode = 2
 card = ExtResource("6_y3gwq")
-is_permanent = true
+stats = ExtResource("4_dvd7h")
 
 [node name="CardUI3" parent="BoardUI/Hand" instance=ExtResource("3_pryqy")]
 layout_mode = 2
 card = ExtResource("7_uamyu")
-is_permanent = true
+stats = ExtResource("4_dvd7h")
 
 [node name="CardUI4" parent="BoardUI/Hand" instance=ExtResource("3_pryqy")]
 layout_mode = 2
 card = ExtResource("8_e2d3w")
-is_permanent = true
+stats = ExtResource("4_dvd7h")
