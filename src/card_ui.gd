@@ -27,7 +27,7 @@ var is_glowing_strong := false
 @onready var drop_targets: Array[Node] = []
 @export var base_shimmer_material: ShaderMaterial
 @export var base_glow_material: ShaderMaterial
-
+@onready var original_index := self.get_index()
 
 var shimmer_material: ShaderMaterial
 var shimmer_enabled := false
