@@ -11,6 +11,9 @@ enum Target {SELF, SINGLE, ALL_CARDS_ON_BOARD} #, EVERYONE
 @export var target: Target
 @export var is_permanent: bool
 @export var value: int
+@export var temp_change: float
+@export var humid_change: float
+@export var orchard_change: int
 
 @export_group("Card Visuals")
 @export_file("*.png") var texture_path: String
@@ -41,9 +44,25 @@ func play(targets: Array[Node]) -> void: # In tutorial this also gets stats, but
 	player.change_fortune(value)
 	
 	if is_single_targeted():
+		apply_default_effects(targets)
 		apply_effects(targets)
 	else:
+		apply_default_effects(_get_targets(targets))
 		apply_effects(_get_targets(targets))
+
+func apply_default_effects(targets: Array[Node]) -> void:
+	if orchard_change != 0:
+		var effect := ChangeOrchardEffect.new()
+		effect.value = orchard_change
+		effect.execute(targets)
+	if temp_change != 0.0:
+		var effect := ChangeTemperatureEffect.new()
+		effect.value = temp_change
+		effect.execute(targets)
+	if humid_change != 0.0:
+		var effect := ChangeHumidityEffect.new()
+		effect.value = humid_change
+		effect.execute(targets)
 
 func apply_effects(_targets: Array[Node]) -> void:
 	print("in virtual")

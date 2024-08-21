@@ -9,6 +9,7 @@ const GLOW_STRONG_STYLE_BOX := preload("res://scenes/skyboxes/card_glow_strong_s
 
 
 @export var card: Card : set = _set_card
+@export var stats: Stats : set = _set_stats
 
 @onready var type_label: Label = $TypeLabel
 @onready var color: ColorRect = $ColorRect
@@ -27,14 +28,22 @@ var is_glowing_strong := false
 @export var base_shimmer_material: ShaderMaterial
 @export var base_glow_material: ShaderMaterial
 
+
 var shimmer_material: ShaderMaterial
 var shimmer_enabled := false
 var shimmer_time := 0.0
 var parent: Control
 var tween: Tween
+var playable := true : set = _set_playable
+var disabled = false
 
 func _ready():
+	Events.card_aim_started.connect(_on_drag_or_aim_started)
+	Events.card_drag_started.connect(_on_drag_or_aim_started)
+	Events.card_aim_ended.connect(_on_drag_or_aim_ended)
+	Events.card_drag_ended.connect(_on_drag_or_aim_ended)
 	card_state_machine.init(self)
+	
 	shimmer_material = base_shimmer_material.duplicate()
 	if shimmer_material:
 		shimmer_material.set_shader_parameter("time", 0.0)
@@ -46,6 +55,18 @@ func _ready():
 	remove_shimmer()
 	remove_glow()
 
+func _set_playable(value: bool) -> void:
+	playable = value
+	if not playable:
+		value_label.add_theme_color_override("default_color", Color.CRIMSON)
+		# TODO set glow to gray
+	else:
+		value_label.remove_theme_color_override("default_color")
+		
+func _set_stats(value: Stats) -> void:
+	stats = value
+	stats.stats_changed.connect(_on_character_stats_changed)
+
 func play() -> void:
 	if not card:
 		return
@@ -54,10 +75,24 @@ func play() -> void:
 	if not card.is_permanent:
 		queue_free() # TODO add to discard pile
 
+# REMINDER: set character stats from the tutorial was not implemented here!
+
+func _on_drag_or_aim_started(used_card: CardUI) -> void:
+	if used_card == self:
+		return
+	disabled = true
+	
+func _on_drag_or_aim_ended(_card: CardUI) -> void:
+	disabled = false
+	self.playable = stats.can_play_card(card)
+
+func _on_character_stats_changed() -> void:
+	self.playable = stats.can_play_card(card)
+	
 func _set_card(value: Card) -> void:
 	if not is_node_ready():
 		await ready
-	
+
 	card = value
 	type_label.text = card.id
 	if FileAccess.file_exists(card.texture_path):
@@ -68,6 +103,9 @@ func _set_card(value: Card) -> void:
 		type_label.text += "\nPermanent"
 	else:
 		type_label.text +="\nInstant"
+		
+	self.stats = get_tree().get_first_node_in_group("player").stats
+	self.playable = stats.can_play_card(card)
 	
 func _input(event: InputEvent) -> void:
 	card_state_machine.on_input(event)
@@ -78,6 +116,8 @@ func _on_gui_input(event: InputEvent) -> void:
 func _on_mouse_entered() -> void:
 	card_state_machine.on_mouse_entered()
 	add_shimmer()
+	if not playable or disabled:
+		return #TODO add gray glow maybe
 	if not is_glowing_strong:
 		add_glow()
 

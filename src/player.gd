@@ -38,9 +38,10 @@ func change_fortune(value: int):
 	# Some queue free code in the tutorial | probably not necessary here
 
 func change_temperature(value: float):
-	print("Change temperature")
 	stats.set_temperature(stats.temperature + value)
 
 func change_humidity(value: float):
 	stats.set_humidity(stats.humidity + value)
 
+func change_orchard(value: int):
+	stats.set_orchard(stats.orchard + value)

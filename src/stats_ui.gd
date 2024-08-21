@@ -32,5 +32,5 @@ func temperature_to_color(temp: float) -> Color:
 	return color
 
 func humidity_to_color(value: float) -> Color:
-	var color := Color.POWDER_BLUE.lerp(Color.BLUE, value / 100.0)
+	var color := Color.POWDER_BLUE.lerp(Color.ROYAL_BLUE, value / 100.0)
 	return color

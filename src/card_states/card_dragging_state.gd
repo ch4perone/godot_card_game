@@ -9,6 +9,7 @@ func enter() -> void:
 		print("Reparented to ui_layer: ", ui_layer)
 		card_ui.reparent(ui_layer)
 	
+	Events.card_drag_started.emit(card_ui)
 	min_drag_time_elapsed = false
 	var threshold_timer:= get_tree().create_timer(DRAG_MINIMUM_THRESHOLD, false)
 	threshold_timer.timeout.connect(func(): min_drag_time_elapsed = true)
@@ -17,6 +18,8 @@ func enter() -> void:
 	card_ui.color.color.a = 0.5
 	card_ui.state.text = "DRAGGING"
 
+func exit() -> void:
+	Events.card_drag_ended.emit(card_ui)
 
 func on_input(event: InputEvent) -> void:
 	var single_targeted := card_ui.card.is_single_targeted()
