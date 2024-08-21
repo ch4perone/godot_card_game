@@ -115,9 +115,9 @@ func _on_gui_input(event: InputEvent) -> void:
 	
 func _on_mouse_entered() -> void:
 	card_state_machine.on_mouse_entered()
-	add_shimmer()
 	if not playable or disabled:
 		return #TODO add gray glow maybe
+	add_shimmer()
 	if not is_glowing_strong:
 		add_glow()
 

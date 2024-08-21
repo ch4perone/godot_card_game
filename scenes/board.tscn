@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://27ucvrf8htk6"]
+[gd_scene load_steps=15 format=3 uid="uid://27ucvrf8htk6"]
 
 [ext_resource type="Texture2D" uid="uid://dhcjsisoh58of" path="res://assets/background/background.png" id="1_yi3mj"]
 [ext_resource type="Script" path="res://src/hand.gd" id="2_f61gj"]
@@ -9,8 +9,10 @@
 [ext_resource type="Resource" uid="uid://cyifqlnb0q4in" path="res://custom_resources/character/character_stats.tres" id="4_dvd7h"]
 [ext_resource type="Resource" uid="uid://dy516sajo8yir" path="res://custom_resources/weather/sunshine.tres" id="5_py05h"]
 [ext_resource type="Resource" uid="uid://bmvlmevq6xgd8" path="res://custom_resources/weather/rain.tres" id="6_y3gwq"]
-[ext_resource type="Resource" uid="uid://dnelx3d3qntg" path="res://custom_resources/environmental/howl_of_the_cat.tres" id="7_uamyu"]
 [ext_resource type="Resource" uid="uid://bd6iyt786creg" path="res://custom_resources/environmental/morning_dew.tres" id="8_e2d3w"]
+[ext_resource type="Resource" uid="uid://vtfeqced82xj" path="res://custom_resources/environmental/thunderstrike.tres" id="10_121bd"]
+[ext_resource type="Resource" uid="uid://cden2bjgis746" path="res://custom_resources/consumable/tea.tres" id="12_0yhsv"]
+[ext_resource type="Resource" uid="uid://ddos13fs8a6rr" path="res://custom_resources/consumable/hot_chocolate.tres" id="13_hi35l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cfc57"]
 size = Vector2(2560, 667)
@@ -78,8 +80,16 @@ card = ExtResource("6_y3gwq")
 
 [node name="CardUI3" parent="BoardUI/Hand" instance=ExtResource("3_pryqy")]
 layout_mode = 2
-card = ExtResource("7_uamyu")
+card = ExtResource("10_121bd")
 
 [node name="CardUI4" parent="BoardUI/Hand" instance=ExtResource("3_pryqy")]
 layout_mode = 2
 card = ExtResource("8_e2d3w")
+
+[node name="CardUI5" parent="BoardUI/Hand" instance=ExtResource("3_pryqy")]
+layout_mode = 2
+card = ExtResource("12_0yhsv")
+
+[node name="CardUI6" parent="BoardUI/Hand" instance=ExtResource("3_pryqy")]
+layout_mode = 2
+card = ExtResource("13_hi35l")

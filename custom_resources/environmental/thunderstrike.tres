@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://vtfeqced82xj"]
+
+[ext_resource type="Script" path="res://custom_resources/card.gd" id="1_ukg80"]
+
+[resource]
+script = ExtResource("1_ukg80")
+id = "thunderstrike"
+type = 1
+target = 1
+is_permanent = false
+value = -2
+temp_change = 0.0
+humid_change = 0.0
+orchard_change = 0
+texture_path = "res://assets/card_art/environmental/thunderstrike.png"
+tooltip_text = ""

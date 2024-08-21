@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="CardPile" load_steps=9 format=3 uid="uid://d00xq3ygflgam"]
+[gd_resource type="Resource" script_class="CardPile" load_steps=10 format=3 uid="uid://d00xq3ygflgam"]
 
 [ext_resource type="Resource" uid="uid://cden2bjgis746" path="res://custom_resources/consumable/tea.tres" id="1_3iof7"]
+[ext_resource type="Script" path="res://custom_resources/card.gd" id="1_7qm2v"]
 [ext_resource type="Script" path="res://custom_resources/card_pile.gd" id="1_78bqm"]
 [ext_resource type="Resource" uid="uid://bd6iyt786creg" path="res://custom_resources/environmental/morning_dew.tres" id="2_j25ta"]
 [ext_resource type="Resource" uid="uid://dnelx3d3qntg" path="res://custom_resources/environmental/howl_of_the_cat.tres" id="3_3u1sn"]
@@ -11,4 +12,4 @@
 
 [resource]
 script = ExtResource("1_78bqm")
-cards = Array[Resource("res://custom_resources/card.gd")]([ExtResource("1_3iof7"), ExtResource("1_3iof7"), ExtResource("2_j25ta"), ExtResource("3_3u1sn"), ExtResource("4_jbq4b"), ExtResource("4_jbq4b"), ExtResource("5_8p4cm"), ExtResource("5_8p4cm"), ExtResource("6_ib4m7"), ExtResource("7_nonht")])
+cards = Array[ExtResource("1_7qm2v")]([ExtResource("1_3iof7"), ExtResource("1_3iof7"), ExtResource("2_j25ta"), ExtResource("3_3u1sn"), ExtResource("4_jbq4b"), ExtResource("4_jbq4b"), ExtResource("5_8p4cm"), ExtResource("5_8p4cm"), ExtResource("6_ib4m7"), ExtResource("7_nonht")])

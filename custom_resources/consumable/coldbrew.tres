@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://cepwgiox3c4gn"]
+
+[ext_resource type="Script" path="res://custom_resources/card.gd" id="1_suflm"]
+
+[resource]
+script = ExtResource("1_suflm")
+id = "coldbrew"
+type = 2
+target = 0
+is_permanent = false
+value = -2
+temp_change = -5.0
+humid_change = 0.0
+orchard_change = 0
+texture_path = "res://assets/card_art/consumable/coldbrew.png"
+tooltip_text = ""
