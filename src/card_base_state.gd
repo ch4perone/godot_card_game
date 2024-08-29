@@ -14,7 +14,7 @@ func enter() -> void:
 	card_ui.state.text = "BASE"
 	card_ui.pivot_offset = Vector2.ZERO
 	#card_ui.remove_glow()
-	
+	Events.tooltip_hide_requested.emit()
 
 
 func on_gui_input(event: InputEvent) -> void:

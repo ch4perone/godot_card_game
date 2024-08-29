@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://27ucvrf8htk6"]
+[gd_scene load_steps=16 format=3 uid="uid://27ucvrf8htk6"]
 
 [ext_resource type="Texture2D" uid="uid://dhcjsisoh58of" path="res://assets/background/background.png" id="1_yi3mj"]
 [ext_resource type="Script" path="res://src/hand.gd" id="2_f61gj"]
@@ -13,6 +13,7 @@
 [ext_resource type="Resource" uid="uid://vtfeqced82xj" path="res://custom_resources/environmental/thunderstrike.tres" id="10_121bd"]
 [ext_resource type="Resource" uid="uid://cden2bjgis746" path="res://custom_resources/consumable/tea.tres" id="12_0yhsv"]
 [ext_resource type="Resource" uid="uid://ddos13fs8a6rr" path="res://custom_resources/consumable/hot_chocolate.tres" id="13_hi35l"]
+[ext_resource type="PackedScene" uid="uid://vhs7en7rq6tg" path="res://scenes/tooltip.tscn" id="14_bj1ot"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cfc57"]
 size = Vector2(2560, 667)
@@ -93,3 +94,10 @@ card = ExtResource("12_0yhsv")
 [node name="CardUI6" parent="BoardUI/Hand" instance=ExtResource("3_pryqy")]
 layout_mode = 2
 card = ExtResource("13_hi35l")
+
+[node name="Tooltip" parent="BoardUI" instance=ExtResource("14_bj1ot")]
+offset_left = -670.0
+offset_top = 299.0
+offset_right = -70.0
+offset_bottom = 699.0
+pivot_offset = Vector2(416, 186)

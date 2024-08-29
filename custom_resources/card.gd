@@ -19,6 +19,29 @@ enum Target {SELF, SINGLE, ALL_CARDS_ON_BOARD} #, EVERYONE
 @export_file("*.png") var texture_path: String
 @export_multiline var tooltip_text: String
 
+func set_tooltip_from_values():
+	var tooltip_default_text := ""
+	
+	if orchard_change != 0:
+		var orchard_sign = ""
+		if orchard_change > 0:
+			orchard_sign = "+" 
+		tooltip_default_text += "[apple] " + orchard_sign + str(orchard_change) + "\n"
+	
+	if temp_change != 0:
+		var temp_sign = ""
+		if temp_change > 0:
+			temp_sign = "+" 
+		tooltip_default_text += "Temperature " + temp_sign + str(temp_change) + "°C\n"
+
+	if humid_change != 0:
+		var humid_sign = ""
+		if humid_change > 0:
+			humid_sign = "+" 
+		tooltip_default_text += "Soil humidity " + humid_sign + str(humid_change) + "%"
+
+	tooltip_text = tooltip_default_text + tooltip_text
+
 func is_single_targeted() -> bool:
 	return target == Target.SINGLE
 	

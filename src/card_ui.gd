@@ -103,6 +103,8 @@ func _set_card(value: Card) -> void:
 		type_label.text += "\nPermanent"
 	else:
 		type_label.text +="\nInstant"
+	
+	card.set_tooltip_from_values()
 		
 	self.stats = get_tree().get_first_node_in_group("player").stats
 	self.playable = stats.can_play_card(card)
@@ -120,13 +122,14 @@ func _on_mouse_entered() -> void:
 	add_shimmer()
 	if not is_glowing_strong:
 		add_glow()
-
+	Events.card_tooltip_requested.emit(self)
 
 func _on_mouse_exited() -> void:
 	card_state_machine.on_mouse_exited()
 	remove_shimmer()
 	if not is_glowing_strong:
 		remove_glow()
+		Events.tooltip_hide_requested.emit()
 
 func _on_drop_point_detector_area_entered(area) -> void:
 	if area.is_in_group("card_drop_area"): 
@@ -145,7 +148,7 @@ func _on_drop_point_detector_area_exited(area):
 	if area.is_in_group("card_drop_area") and is_glowing_strong:
 		is_glowing_strong = false
 		add_glow()
-	elif area.is_in_group("card_target_selector"):
+	elif area.is_in_group( "card_target_selector"):
 		if not is_glowing_strong:
 			remove_glow()
 

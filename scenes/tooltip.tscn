@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://vhs7en7rq6tg"]
+
+[ext_resource type="Theme" uid="uid://r10julcyhqau" path="res://main_them.tres" id="1_jqmyl"]
+[ext_resource type="Script" path="res://src/tooltip.gd" id="2_yrbii"]
+
+[node name="Tooltip" type="PanelContainer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -600.0
+offset_bottom = 400.0
+grow_horizontal = 0
+theme = ExtResource("1_jqmyl")
+script = ExtResource("2_yrbii")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TooltipIcon" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TooltipText" type="RichTextLabel" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/line_separation = 5
+bbcode_enabled = true
+text = "This is a tooltip
+This is a tooltip
+
+"
