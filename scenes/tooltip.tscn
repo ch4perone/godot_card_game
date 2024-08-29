@@ -1,36 +1,58 @@
-[gd_scene load_steps=3 format=3 uid="uid://vhs7en7rq6tg"]
+[gd_scene load_steps=5 format=3 uid="uid://vhs7en7rq6tg"]
 
 [ext_resource type="Theme" uid="uid://r10julcyhqau" path="res://main_them.tres" id="1_jqmyl"]
 [ext_resource type="Script" path="res://src/tooltip.gd" id="2_yrbii"]
+[ext_resource type="StyleBox" uid="uid://dqr6qlh17w66b" path="res://scenes/skyboxes/card_border_stylebox.tres" id="3_d6sre"]
+[ext_resource type="Texture2D" uid="uid://c8b01jb4pcdiq" path="res://assets/card_art/consumable/chocolate_bar.png" id="4_wpva8"]
 
 [node name="Tooltip" type="PanelContainer"]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -600.0
-offset_bottom = 400.0
+offset_left = -700.0
+offset_bottom = 506.0
 grow_horizontal = 0
 theme = ExtResource("1_jqmyl")
 script = ExtResource("2_yrbii")
 
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_d6sre")
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 25
-theme_override_constants/margin_top = 25
-theme_override_constants/margin_right = 25
-theme_override_constants/margin_bottom = 25
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_top = 22
+theme_override_constants/margin_right = 22
+theme_override_constants/margin_bottom = 22
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
 [node name="TooltipIcon" type="TextureRect" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 200)
+custom_minimum_size = Vector2(280, 490)
 layout_mode = 2
+texture = ExtResource("4_wpva8")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TooltipText" type="RichTextLabel" parent="MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CardNameText" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_jqmyl")
+theme_override_font_sizes/font_size = 32
+text = "Squirrel"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+
+[node name="TooltipText" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3

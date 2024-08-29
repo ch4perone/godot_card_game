@@ -17,9 +17,15 @@ enum Target {SELF, SINGLE, ALL_CARDS_ON_BOARD} #, EVERYONE
 
 @export_group("Card Visuals")
 @export_file("*.png") var texture_path: String
+@export var card_name: String
 @export_multiline var tooltip_text: String
 
 func set_tooltip_from_values():
+	if card_name == "":
+		var splits = id.split("_")
+		for s in splits:
+			card_name += s.capitalize() + " "
+		
 	var tooltip_default_text := ""
 	
 	if orchard_change != 0:

@@ -3,6 +3,7 @@ extends PanelContainer
 
 @onready var fade_seconds := 0.2
 @onready var tooltip_icon := %TooltipIcon
+@onready var card_name_text_label := %CardNameText
 @onready var tooltip_text_label := %TooltipText
 
 var tween: Tween
@@ -19,6 +20,7 @@ func show_tooltip(card_ui: CardUI) -> void:
 		tween.kill()
 	
 	tooltip_icon.texture = card_ui.card_art.texture
+	card_name_text_label.text = card_ui.card.card_name + "\n"
 	tooltip_text_label.text = card_ui.card.tooltip_text
 
 	tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)

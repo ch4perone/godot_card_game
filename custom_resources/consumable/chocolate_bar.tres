@@ -13,4 +13,5 @@ temp_change = 0.0
 humid_change = 0.0
 orchard_change = 0
 texture_path = "res://assets/card_art/consumable/chocolate_bar.png"
+card = ""
 tooltip_text = ""
