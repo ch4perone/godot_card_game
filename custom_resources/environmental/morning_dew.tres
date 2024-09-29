@@ -13,4 +13,5 @@ temp_change = 0.0
 humid_change = 0.0
 orchard_change = 0
 texture_path = "res://assets/card_art/environmental/morning_dew.png"
+card_name = ""
 tooltip_text = ""
