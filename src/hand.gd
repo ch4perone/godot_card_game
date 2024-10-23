@@ -21,6 +21,5 @@ func _on_card_ui_reparent_requested(child: CardUI) -> void:
 	move_child.call_deferred(child, new_index)
 	print("Reparented to hand")
 
-
 func _on_card_played(_card: Card) -> void:
 	cards_played_this_turn += 1
