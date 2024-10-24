@@ -8,3 +8,4 @@ extends CanvasLayer
 
 func _set_stats(value: Stats):
 	stats = value
+	hand.stats = stats

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://27ucvrf8htk6"]
+[gd_scene load_steps=12 format=3 uid="uid://27ucvrf8htk6"]
 
 [ext_resource type="Script" path="res://src/board.gd" id="1_w4shd"]
 [ext_resource type="Texture2D" uid="uid://dhcjsisoh58of" path="res://assets/background/background.png" id="1_yi3mj"]
@@ -6,15 +6,9 @@
 [ext_resource type="Theme" uid="uid://r10julcyhqau" path="res://main_them.tres" id="2_opk5u"]
 [ext_resource type="PackedScene" uid="uid://dlxnc660jeoqk" path="res://scenes/card_target_selector.tscn" id="2_syquv"]
 [ext_resource type="PackedScene" uid="uid://4qcd1mchyed0" path="res://scenes/player.tscn" id="3_elu8h"]
-[ext_resource type="PackedScene" uid="uid://dccu5k4igqc1r" path="res://scenes/card_ui.tscn" id="3_pryqy"]
 [ext_resource type="Resource" uid="uid://cyifqlnb0q4in" path="res://custom_resources/character/character_stats.tres" id="4_dvd7h"]
-[ext_resource type="Resource" uid="uid://dy516sajo8yir" path="res://custom_resources/weather/sunshine.tres" id="5_py05h"]
 [ext_resource type="Script" path="res://src/board_ui.gd" id="5_v6acp"]
-[ext_resource type="Resource" uid="uid://bmvlmevq6xgd8" path="res://custom_resources/weather/rain.tres" id="6_y3gwq"]
-[ext_resource type="Resource" uid="uid://bd6iyt786creg" path="res://custom_resources/environmental/morning_dew.tres" id="8_e2d3w"]
-[ext_resource type="Resource" uid="uid://vtfeqced82xj" path="res://custom_resources/environmental/thunderstrike.tres" id="10_121bd"]
-[ext_resource type="Resource" uid="uid://cden2bjgis746" path="res://custom_resources/consumable/tea.tres" id="12_0yhsv"]
-[ext_resource type="Resource" uid="uid://ddos13fs8a6rr" path="res://custom_resources/consumable/hot_chocolate.tres" id="13_hi35l"]
+[ext_resource type="Script" path="res://src/player_handler.gd" id="6_5rid4"]
 [ext_resource type="PackedScene" uid="uid://vhs7en7rq6tg" path="res://scenes/tooltip.tscn" id="14_bj1ot"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cfc57"]
@@ -44,6 +38,10 @@ position = Vector2(1280, 0)
 stats = ExtResource("4_dvd7h")
 
 [node name="CardTargetSelector" parent="." instance=ExtResource("2_syquv")]
+
+[node name="PlayerHandler" type="Node" parent="." node_paths=PackedStringArray("hand")]
+script = ExtResource("6_5rid4")
+hand = NodePath("../BoardUI/Hand")
 
 [node name="BoardUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
 script = ExtResource("5_v6acp")
@@ -75,30 +73,6 @@ size_flags_vertical = 8
 theme = ExtResource("2_opk5u")
 alignment = 1
 script = ExtResource("2_f61gj")
-
-[node name="CardUI" parent="BoardUI/Hand" instance=ExtResource("3_pryqy")]
-layout_mode = 2
-card = ExtResource("5_py05h")
-
-[node name="CardUI2" parent="BoardUI/Hand" instance=ExtResource("3_pryqy")]
-layout_mode = 2
-card = ExtResource("6_y3gwq")
-
-[node name="CardUI3" parent="BoardUI/Hand" instance=ExtResource("3_pryqy")]
-layout_mode = 2
-card = ExtResource("10_121bd")
-
-[node name="CardUI4" parent="BoardUI/Hand" instance=ExtResource("3_pryqy")]
-layout_mode = 2
-card = ExtResource("8_e2d3w")
-
-[node name="CardUI5" parent="BoardUI/Hand" instance=ExtResource("3_pryqy")]
-layout_mode = 2
-card = ExtResource("12_0yhsv")
-
-[node name="CardUI6" parent="BoardUI/Hand" instance=ExtResource("3_pryqy")]
-layout_mode = 2
-card = ExtResource("13_hi35l")
 
 [node name="Tooltip" parent="BoardUI" instance=ExtResource("14_bj1ot")]
 offset_left = -670.0
