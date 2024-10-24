@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://27ucvrf8htk6"]
+[gd_scene load_steps=18 format=3 uid="uid://27ucvrf8htk6"]
 
+[ext_resource type="Script" path="res://src/board.gd" id="1_w4shd"]
 [ext_resource type="Texture2D" uid="uid://dhcjsisoh58of" path="res://assets/background/background.png" id="1_yi3mj"]
 [ext_resource type="Script" path="res://src/hand.gd" id="2_f61gj"]
 [ext_resource type="Theme" uid="uid://r10julcyhqau" path="res://main_them.tres" id="2_opk5u"]
@@ -8,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dccu5k4igqc1r" path="res://scenes/card_ui.tscn" id="3_pryqy"]
 [ext_resource type="Resource" uid="uid://cyifqlnb0q4in" path="res://custom_resources/character/character_stats.tres" id="4_dvd7h"]
 [ext_resource type="Resource" uid="uid://dy516sajo8yir" path="res://custom_resources/weather/sunshine.tres" id="5_py05h"]
+[ext_resource type="Script" path="res://src/board_ui.gd" id="5_v6acp"]
 [ext_resource type="Resource" uid="uid://bmvlmevq6xgd8" path="res://custom_resources/weather/rain.tres" id="6_y3gwq"]
 [ext_resource type="Resource" uid="uid://bd6iyt786creg" path="res://custom_resources/environmental/morning_dew.tres" id="8_e2d3w"]
 [ext_resource type="Resource" uid="uid://vtfeqced82xj" path="res://custom_resources/environmental/thunderstrike.tres" id="10_121bd"]
@@ -19,6 +21,8 @@
 size = Vector2(2560, 667)
 
 [node name="Board" type="Node2D"]
+script = ExtResource("1_w4shd")
+stats = ExtResource("4_dvd7h")
 metadata/_edit_lock_ = true
 
 [node name="Background" type="Sprite2D" parent="."]
@@ -42,6 +46,7 @@ stats = ExtResource("4_dvd7h")
 [node name="CardTargetSelector" parent="." instance=ExtResource("2_syquv")]
 
 [node name="BoardUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
+script = ExtResource("5_v6acp")
 
 [node name="PermanentBox" type="HBoxContainer" parent="BoardUI" groups=["ui_layer"]]
 anchors_preset = 5
