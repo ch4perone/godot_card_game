@@ -50,7 +50,10 @@ func set_tooltip_from_values():
 
 func is_single_targeted() -> bool:
 	return target == Target.SINGLE
-	
+
+func is_weather() -> bool:
+	return type == Type.Weather
+
 func _get_targets(targets: Array[Node]) -> Array[Node]:
 	if not targets:
 		return []

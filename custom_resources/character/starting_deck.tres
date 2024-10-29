@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://custom_resources/card.gd" id="1_7qm2v"]
 [ext_resource type="Script" path="res://custom_resources/card_pile.gd" id="1_78bqm"]
 [ext_resource type="Resource" uid="uid://bd6iyt786creg" path="res://custom_resources/environmental/morning_dew.tres" id="2_j25ta"]
-[ext_resource type="Resource" uid="uid://dnelx3d3qntg" path="res://custom_resources/environmental/howl_of_the_cat.tres" id="3_3u1sn"]
+[ext_resource type="Resource" uid="uid://vtfeqced82xj" path="res://custom_resources/environmental/thunderstrike.tres" id="4_fuxur"]
 [ext_resource type="Resource" uid="uid://bmvlmevq6xgd8" path="res://custom_resources/weather/rain.tres" id="4_jbq4b"]
 [ext_resource type="Resource" uid="uid://dy516sajo8yir" path="res://custom_resources/weather/sunshine.tres" id="5_8p4cm"]
 [ext_resource type="Resource" uid="uid://buo20or3k8qa6" path="res://custom_resources/consumable/drip_coffee.tres" id="6_ib4m7"]
@@ -12,4 +12,4 @@
 
 [resource]
 script = ExtResource("1_78bqm")
-cards = Array[ExtResource("1_7qm2v")]([ExtResource("1_3iof7"), ExtResource("1_3iof7"), ExtResource("2_j25ta"), ExtResource("3_3u1sn"), ExtResource("4_jbq4b"), ExtResource("4_jbq4b"), ExtResource("5_8p4cm"), ExtResource("5_8p4cm"), ExtResource("6_ib4m7"), ExtResource("7_nonht")])
+cards = Array[ExtResource("1_7qm2v")]([ExtResource("1_3iof7"), ExtResource("2_j25ta"), ExtResource("4_fuxur"), ExtResource("4_jbq4b"), ExtResource("4_jbq4b"), ExtResource("5_8p4cm"), ExtResource("5_8p4cm"), ExtResource("6_ib4m7"), ExtResource("7_nonht"), ExtResource("2_j25ta")])

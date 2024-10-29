@@ -7,6 +7,12 @@ const HAND_DRAW_INTERVAL := 0.25
 
 var stats: Stats
 
+func _input(_event):
+	if Input.is_action_pressed("quit_game"):
+		get_tree().quit()
+	if Input.is_action_pressed("draw_card"):
+		draw_cards(1)
+
 func start_session(starting_stats: Stats) -> void:
 	stats = starting_stats
 	stats.draw_pile = stats.deck.duplicate(true)

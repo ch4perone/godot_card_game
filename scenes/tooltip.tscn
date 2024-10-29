@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://r10julcyhqau" path="res://main_them.tres" id="1_jqmyl"]
 [ext_resource type="Script" path="res://src/tooltip.gd" id="2_yrbii"]
-[ext_resource type="StyleBox" uid="uid://dqr6qlh17w66b" path="res://scenes/skyboxes/card_border_stylebox.tres" id="3_d6sre"]
+[ext_resource type="StyleBox" uid="uid://dqr6qlh17w66b" path="res://scenes/styleboxes/card_border_stylebox.tres" id="3_d6sre"]
 [ext_resource type="Texture2D" uid="uid://c8b01jb4pcdiq" path="res://assets/card_art/consumable/chocolate_bar.png" id="4_wpva8"]
 
 [node name="Tooltip" type="PanelContainer"]

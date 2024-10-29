@@ -3,9 +3,9 @@ extends Control
 
 signal reparent_requested(which_card_ui: CardUI)
 
-const GLOW_FAINT_STYLE_BOX := preload("res://scenes/skyboxes/card_glow_faint_stylebox.tres")
-const GLOW_STYLE_BOX := preload("res://scenes/skyboxes/card_glow_stylebox.tres")
-const GLOW_STRONG_STYLE_BOX := preload("res://scenes/skyboxes/card_glow_strong_stylebox.tres")
+var GLOW_FAINT_STYLE_BOX := preload("res://scenes/styleboxes/card_glow_faint_stylebox.tres")
+var GLOW_STYLE_BOX := preload("res://scenes/styleboxes/card_glow_stylebox.tres")
+var GLOW_STRONG_STYLE_BOX := preload("res://scenes/styleboxes/card_glow_strong_stylebox.tres")
 
 
 @export var card: Card : set = _set_card
@@ -72,7 +72,7 @@ func play() -> void:
 		return
 	card.play(drop_targets)
 	
-	if not card.is_permanent:
+	if not (card.is_permanent or card.is_weather()):
 		queue_free() # TODO add to discard pile
 
 # REMINDER: set character stats from the tutorial was not implemented here!
@@ -103,12 +103,26 @@ func _set_card(value: Card) -> void:
 		type_label.text += "\nPermanent"
 	else:
 		type_label.text +="\nInstant"
+
 	
 	card.set_tooltip_from_values()
 		
 	self.stats = get_tree().get_first_node_in_group("player").stats
 	self.playable = stats.can_play_card(card)
 	
+func set_glow_color() -> void:
+	if card.is_weather():
+		GLOW_FAINT_STYLE_BOX.shadow_color = Color.GOLD
+		GLOW_FAINT_STYLE_BOX.shadow_color.a = 0.07
+		GLOW_STYLE_BOX.shadow_color = Color.GOLD
+		GLOW_STYLE_BOX.shadow_color.a = 0.78
+		GLOW_STRONG_STYLE_BOX.shadow_color = Color.GOLD
+	else:
+		GLOW_FAINT_STYLE_BOX.shadow_color = Color.html("008ddc14")
+		GLOW_STYLE_BOX.shadow_color = Color.html("008ddcc8")
+		GLOW_STRONG_STYLE_BOX.shadow_color = Color.html("008ddc")
+		
+
 func _input(event: InputEvent) -> void:
 	card_state_machine.on_input(event)
 
@@ -120,6 +134,7 @@ func _on_mouse_entered() -> void:
 	if not playable or disabled:
 		return #TODO add gray glow maybe
 	add_shimmer()
+	set_glow_color()
 	if not is_glowing_strong:
 		add_glow()
 	Events.card_tooltip_requested.emit(self)
@@ -171,6 +186,10 @@ func remove_shimmer():
 func add_strong_glow():
 	is_glowing_strong = true
 	glow_panel.add_theme_stylebox_override("panel", GLOW_STRONG_STYLE_BOX)
+	if card.is_weather():
+		var ui_layer = get_tree().get_nodes_in_group("ui_layer")[1] # Weather Box
+		if ui_layer:
+			ui_layer.get_child(0).add_theme_stylebox_override("panel", GLOW_STRONG_STYLE_BOX)
 
 func add_glow():
 	glow_panel.visible = true

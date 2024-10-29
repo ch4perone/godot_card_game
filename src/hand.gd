@@ -6,9 +6,6 @@ extends HBoxContainer
 
 var cards_played_this_turn := 0
 
-func _input(_event):
-	if Input.is_action_pressed("quit_game"):
-		get_tree().quit()
 
 func _ready() -> void:
 	Events.card_played.connect(_on_card_played)

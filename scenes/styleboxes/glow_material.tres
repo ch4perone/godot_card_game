@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cemmpaca367ge"]
+
+[ext_resource type="Shader" path="res://scenes/styleboxes/glow.gdshader" id="1_8gmr6"]
+
+[resource]
+shader = ExtResource("1_8gmr6")
+shader_parameter/rect_size = Vector2(290, 480)
+shader_parameter/glow_size = 60.0
+shader_parameter/color = Color(0, 0, 1, 0.5)

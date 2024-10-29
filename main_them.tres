@@ -1,11 +1,42 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://r10julcyhqau"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://r10julcyhqau"]
 
 [ext_resource type="FontFile" uid="uid://d1hdvd6wmoho6" path="res://global/Ubuntu_Mono/UbuntuMono-Regular.ttf" id="1_71aoj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8g2y2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a0el2"]
+bg_color = Color(0, 0, 0, 0.392157)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.87451, 0.745098, 0.341176, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_673m7"]
+bg_color = Color(0, 0, 0, 0.392157)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.690196, 0.552941, 0.341176, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sfsph"]
+bg_color = Color(0, 0, 0, 0.196078)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.87451, 0.745098, 0.341176, 1)
 
 [resource]
 default_base_scale = 1.0
 default_font = ExtResource("1_71aoj")
 default_font_size = 25
+Button/styles/disabled = null
+Button/styles/focus = SubResource("StyleBoxEmpty_8g2y2")
+Button/styles/hover = SubResource("StyleBoxFlat_a0el2")
+Button/styles/normal = SubResource("StyleBoxFlat_673m7")
+Button/styles/pressed = SubResource("StyleBoxFlat_sfsph")
 Fonts/fonts/large = ExtResource("1_71aoj")
 Fonts/fonts/normal = ExtResource("1_71aoj")
 HBoxContainer/constants/separation = 20
