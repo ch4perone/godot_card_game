@@ -11,6 +11,10 @@ var GLOW_STRONG_STYLE_BOX := preload("res://scenes/styleboxes/card_glow_strong_s
 @export var card: Card : set = _set_card
 @export var stats: Stats : set = _set_stats
 
+@export var glow_color := Color(0, 0.553, 863, 1)
+@export var glow_color_weather := Color.GOLD
+
+
 @onready var type_label: Label = $TypeLabel
 @onready var color: ColorRect = $ColorRect
 @onready var value_label = $Value
@@ -18,6 +22,7 @@ var GLOW_STRONG_STYLE_BOX := preload("res://scenes/styleboxes/card_glow_strong_s
 # Artsy stuff
 @onready var card_art: Sprite2D = $CardArt
 @onready var glow_panel = $GlowPanel
+@onready var shader_material := ShaderMaterial.new()
 @onready var border_panel = $BorderPanel
 var is_glowing_strong := false
 
@@ -52,6 +57,10 @@ func _ready():
 		shimmer_material.set_shader_parameter("shine_size", 0.01)
 		card_art.material = shimmer_material
 	
+	shader_material.shader = preload("res://scenes/styleboxes/glow.gdshader")
+	glow_panel.material = shader_material
+	
+
 	remove_shimmer()
 	remove_glow()
 
@@ -110,18 +119,12 @@ func _set_card(value: Card) -> void:
 	self.stats = get_tree().get_first_node_in_group("player").stats
 	self.playable = stats.can_play_card(card)
 	
+	set_glow_color()
+	remove_glow()
+	
 func set_glow_color() -> void:
 	if card.is_weather():
-		GLOW_FAINT_STYLE_BOX.shadow_color = Color.GOLD
-		GLOW_FAINT_STYLE_BOX.shadow_color.a = 0.07
-		GLOW_STYLE_BOX.shadow_color = Color.GOLD
-		GLOW_STYLE_BOX.shadow_color.a = 0.78
-		GLOW_STRONG_STYLE_BOX.shadow_color = Color.GOLD
-	else:
-		GLOW_FAINT_STYLE_BOX.shadow_color = Color.html("008ddc14")
-		GLOW_STYLE_BOX.shadow_color = Color.html("008ddcc8")
-		GLOW_STRONG_STYLE_BOX.shadow_color = Color.html("008ddc")
-		
+		glow_color = glow_color_weather
 
 func _input(event: InputEvent) -> void:
 	card_state_machine.on_input(event)
@@ -134,7 +137,6 @@ func _on_mouse_entered() -> void:
 	if not playable or disabled:
 		return #TODO add gray glow maybe
 	add_shimmer()
-	set_glow_color()
 	if not is_glowing_strong:
 		add_glow()
 	Events.card_tooltip_requested.emit(self)
@@ -185,7 +187,11 @@ func remove_shimmer():
 
 func add_strong_glow():
 	is_glowing_strong = true
-	glow_panel.add_theme_stylebox_override("panel", GLOW_STRONG_STYLE_BOX)
+	glow_color.a = 0.6
+	shader_material.set_shader_parameter("color", glow_color)
+	shader_material.set_shader_parameter("glow_size", 50)
+
+
 	if card.is_weather():
 		var ui_layer = get_tree().get_nodes_in_group("ui_layer")[1] # Weather Box
 		if ui_layer:
@@ -193,11 +199,15 @@ func add_strong_glow():
 
 func add_glow():
 	glow_panel.visible = true
-	glow_panel.add_theme_stylebox_override("panel", GLOW_STYLE_BOX)
+	glow_color.a = 0.5
+	shader_material.set_shader_parameter("color", glow_color)
+	shader_material.set_shader_parameter("glow_size", 20)
 
 func remove_glow():
 	# Alternatively, make glow invisible
-	glow_panel.add_theme_stylebox_override("panel", GLOW_FAINT_STYLE_BOX)
+	glow_color.a = 0.2
+	shader_material.set_shader_parameter("color", glow_color)
+	shader_material.set_shader_parameter("glow_size", 18)
 	
 	
 func _process(delta):

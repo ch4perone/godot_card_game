@@ -4,6 +4,6 @@
 
 [resource]
 shader = ExtResource("1_8gmr6")
-shader_parameter/rect_size = Vector2(290, 480)
-shader_parameter/glow_size = 60.0
-shader_parameter/color = Color(0, 0, 1, 0.5)
+shader_parameter/rect_size = Vector2(280, 490)
+shader_parameter/glow_size = 10.0
+shader_parameter/color = Color(0, 0.553, 0.863, 0.5)

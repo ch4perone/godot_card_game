@@ -6,8 +6,8 @@
 [ext_resource type="Script" path="res://src/card_state_machine.gd" id="3_ypytd"]
 [ext_resource type="Script" path="res://src/card_base_state.gd" id="4_0kcx6"]
 [ext_resource type="Shader" path="res://assets/materials/glow_outline_shader.gdshader" id="4_bqh6l"]
+[ext_resource type="Material" uid="uid://cemmpaca367ge" path="res://scenes/styleboxes/glow_material.tres" id="5_g2m7n"]
 [ext_resource type="Script" path="res://src/card_states/card_clicked_state.gd" id="5_x8mih"]
-[ext_resource type="StyleBox" uid="uid://dxbvbka6eyeb3" path="res://scenes/styleboxes/card_glow_stylebox.tres" id="5_xgjv1"]
 [ext_resource type="Script" path="res://src/card_states/card_dragging_state.gd" id="6_e180x"]
 [ext_resource type="StyleBox" uid="uid://dqr6qlh17w66b" path="res://scenes/styleboxes/card_border_stylebox.tres" id="6_vvy5b"]
 [ext_resource type="Script" path="res://src/card_states/card_released_state.gd" id="7_ees0k"]
@@ -44,6 +44,7 @@ base_shimmer_material = SubResource("ShaderMaterial_dqj72")
 base_glow_material = SubResource("ShaderMaterial_hcv8k")
 
 [node name="GlowPanel" type="Panel" parent="."]
+material = ExtResource("5_g2m7n")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -51,7 +52,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_styles/panel = ExtResource("5_xgjv1")
 
 [node name="CardArt" type="Sprite2D" parent="."]
 centered = false
@@ -106,6 +106,7 @@ scale = Vector2(1.5, 1.5)
 text = "State"
 
 [node name="TypeLabel" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5

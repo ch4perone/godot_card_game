@@ -1,8 +1,8 @@
 shader_type canvas_item;
 
-uniform vec2 rect_size = vec2(290.0, 480.0); // Original rectangle size in pixels
+uniform vec2 rect_size = vec2(280.0, 490.0); // Original rectangle size in pixels
 uniform float glow_size = 50.0;    			 // Glow distance in pixels
-uniform vec4 color : source_color = vec4(0.0, 0.0, 1.0, 0.5); // Base color
+uniform vec4 color : source_color = vec4(0.0, 0.553, 0.863, 0.5); // Base color
 
 varying vec2 original_UV;       // UV coordinates for distance calculation
 
