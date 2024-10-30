@@ -7,7 +7,6 @@ script = ExtResource("1_nyj05")
 id = "morning_dew"
 type = 1
 target = 0
-is_permanent = true
 value = 0
 temp_change = 0.0
 humid_change = 0.0

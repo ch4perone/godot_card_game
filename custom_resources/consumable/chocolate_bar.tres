@@ -7,7 +7,6 @@ script = ExtResource("1_qh2pi")
 id = "chocolate_bar"
 type = 2
 target = 0
-is_permanent = false
 value = 0
 temp_change = 0.0
 humid_change = 0.0

@@ -11,9 +11,7 @@ var GLOW_STRONG_STYLE_BOX := preload("res://scenes/styleboxes/card_glow_strong_s
 @export var card: Card : set = _set_card
 @export var stats: Stats : set = _set_stats
 
-@export var glow_color := Color(0, 0.553, 863, 1)
-@export var glow_color_weather := Color.GOLD
-
+@export var glow_color := CustomColors.GLOW_DEFAULT
 
 @onready var type_label: Label = $TypeLabel
 @onready var color: ColorRect = $ColorRect
@@ -124,7 +122,11 @@ func _set_card(value: Card) -> void:
 	
 func set_glow_color() -> void:
 	if card.is_weather():
-		glow_color = glow_color_weather
+		glow_color = CustomColors.GLOW_WEATHER
+	elif card.is_permanent():
+		glow_color = CustomColors.GLOW_CURSED
+	else:
+		glow_color = CustomColors.GLOW_DEFAULT
 
 func _input(event: InputEvent) -> void:
 	card_state_machine.on_input(event)
@@ -195,7 +197,12 @@ func add_strong_glow():
 	if card.is_weather():
 		var ui_layer = get_tree().get_nodes_in_group("ui_layer")[1] # Weather Box
 		if ui_layer:
-			ui_layer.get_child(0).add_theme_stylebox_override("panel", GLOW_STRONG_STYLE_BOX)
+			ui_layer.show_glow()
+	
+	if card.is_permanent():
+		var ui_layer = get_tree().get_nodes_in_group("ui_layer")[2] # Curse Box
+		if ui_layer:
+			ui_layer.show_glow()
 
 func add_glow():
 	glow_panel.visible = true

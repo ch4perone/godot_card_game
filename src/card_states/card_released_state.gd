@@ -23,12 +23,12 @@ func enter() -> void:
 			var ui_layer = get_tree().get_nodes_in_group("ui_layer")[1] # Weather Box
 			if ui_layer:
 				print("Reparented to ui_layer: ", ui_layer)
-				card_ui.reparent(ui_layer)
-		elif card_ui.card.is_permanent:
+				card_ui.reparent(ui_layer.container)
+		elif card_ui.card.is_permanent():
 			var ui_layer = get_tree().get_nodes_in_group("ui_layer")[2] # Permant Box
 			if ui_layer:
 				print("Reparented to ui_layer: ", ui_layer)
-				card_ui.reparent(ui_layer)
+				card_ui.reparent(ui_layer.container)
 		
 		
 		

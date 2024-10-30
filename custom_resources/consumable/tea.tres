@@ -7,7 +7,6 @@ script = ExtResource("1_ugnv0")
 id = "tea"
 type = 2
 target = 0
-is_permanent = false
 value = 2
 temp_change = 0.0
 humid_change = 0.0

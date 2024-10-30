@@ -9,18 +9,13 @@
 [ext_resource type="Resource" uid="uid://cyifqlnb0q4in" path="res://custom_resources/character/character_stats.tres" id="4_dvd7h"]
 [ext_resource type="Script" path="res://src/board_ui.gd" id="5_v6acp"]
 [ext_resource type="Script" path="res://src/player_handler.gd" id="6_5rid4"]
-[ext_resource type="Shader" path="res://scenes/styleboxes/glow.gdshader" id="9_g1jrr"]
-[ext_resource type="Material" uid="uid://cemmpaca367ge" path="res://scenes/styleboxes/glow_material.tres" id="9_k2han"]
+[ext_resource type="Texture2D" uid="uid://dxd4fj24u6o1v" path="res://assets/icons/cloud_sun_rain_white.png" id="9_s8fjp"]
+[ext_resource type="Texture2D" uid="uid://3f41y7c4yee1" path="res://assets/icons/moon_white.png" id="10_xafnj"]
+[ext_resource type="PackedScene" uid="uid://dmh60am0eej3x" path="res://scenes/card_container.tscn" id="13_4lwmq"]
 [ext_resource type="PackedScene" uid="uid://vhs7en7rq6tg" path="res://scenes/tooltip.tscn" id="14_bj1ot"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cfc57"]
 size = Vector2(2560, 667)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_74ucq"]
-shader = ExtResource("9_g1jrr")
-shader_parameter/rect_size = Vector2(500, 450)
-shader_parameter/glow_size = 60.0
-shader_parameter/color = Color(0, 0, 1, 0.5)
 
 [node name="Board" type="Node2D"]
 script = ExtResource("1_w4shd")
@@ -54,41 +49,16 @@ hand = NodePath("../BoardUI/Hand")
 [node name="BoardUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
 script = ExtResource("5_v6acp")
 
-[node name="WeatherBox" type="HBoxContainer" parent="BoardUI" groups=["ui_layer"]]
-custom_minimum_size = Vector2(290, 480)
-offset_left = 108.0
-offset_top = 180.0
-offset_right = 398.0
-offset_bottom = 660.0
-theme = ExtResource("2_opk5u")
+[node name="WeatherCardContainer" parent="BoardUI" groups=["ui_layer"] instance=ExtResource("13_4lwmq")]
+position = Vector2(100, 180)
+icon_texture = ExtResource("9_s8fjp")
 
-[node name="Panel" type="Panel" parent="BoardUI/WeatherBox"]
-material = ExtResource("9_k2han")
-custom_minimum_size = Vector2(290, 480)
-layout_mode = 2
-theme = ExtResource("2_opk5u")
-
-[node name="Panel" type="Panel" parent="BoardUI/WeatherBox/Panel"]
-layout_mode = 0
-offset_right = 297.0
-offset_bottom = 490.0
-
-[node name="PermanentBox" type="HBoxContainer" parent="BoardUI" groups=["ui_layer"]]
-material = ExtResource("9_k2han")
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -700.0
-offset_top = 180.0
-offset_right = 700.0
-offset_bottom = 530.0
-grow_horizontal = 2
-theme = ExtResource("2_opk5u")
-
-[node name="Panel" type="Panel" parent="BoardUI/PermanentBox"]
-material = SubResource("ShaderMaterial_74ucq")
-custom_minimum_size = Vector2(500, 450)
-layout_mode = 2
+[node name="CurseCardContainer" parent="BoardUI" groups=["ui_layer"] instance=ExtResource("13_4lwmq")]
+position = Vector2(445, 180)
+icon_texture = ExtResource("10_xafnj")
+glow_color = Color(0.6, 0.2, 0.9, 1)
+border_color = Color(0.698039, 0.47451, 0.647059, 1)
+size = Vector2(1600, 490)
 
 [node name="Hand" type="HBoxContainer" parent="BoardUI"]
 anchors_preset = 7
@@ -119,12 +89,12 @@ unique_name_in_owner = true
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 108.0
-offset_top = -437.0
-offset_right = 474.0
-offset_bottom = -321.0
+offset_left = 100.0
+offset_top = -732.0
+offset_right = 380.0
+offset_bottom = -616.0
 grow_vertical = 0
 size_flags_horizontal = 0
 theme = ExtResource("2_opk5u")
-theme_override_font_sizes/font_size = 80
+theme_override_font_sizes/font_size = 60
 text = "Lock in"

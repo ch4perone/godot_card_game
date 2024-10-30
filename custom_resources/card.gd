@@ -2,14 +2,13 @@ class_name Card
 extends Resource
 
 
-enum Type {Weather, Environmental, Consumable}
+enum Type {Weather, Curse, Instant}
 enum Target {SELF, SINGLE, ALL_CARDS_ON_BOARD} #, EVERYONE
 
 @export_group("Card Attributes")
 @export var id: String
 @export var type: Type
 @export var target: Target
-@export var is_permanent: bool
 @export var value: int
 @export var temp_change: float
 @export var humid_change: float
@@ -53,6 +52,9 @@ func is_single_targeted() -> bool:
 
 func is_weather() -> bool:
 	return type == Type.Weather
+	
+func is_permanent() -> bool:
+	return type == Type.Curse
 
 func _get_targets(targets: Array[Node]) -> Array[Node]:
 	if not targets:

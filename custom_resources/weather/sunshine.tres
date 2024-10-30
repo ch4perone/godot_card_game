@@ -7,7 +7,6 @@ script = ExtResource("1_5lugc")
 id = "sunshine"
 type = 0
 target = 0
-is_permanent = false
 value = 0
 temp_change = 3.0
 humid_change = -10.0

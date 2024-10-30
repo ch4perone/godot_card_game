@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmh60am0eej3x"]
+
+[ext_resource type="Script" path="res://src/card_container.gd" id="1_4t54u"]
+[ext_resource type="Texture2D" uid="uid://dxd4fj24u6o1v" path="res://assets/icons/cloud_sun_rain_white.png" id="2_brl7x"]
+[ext_resource type="Theme" uid="uid://r10julcyhqau" path="res://main_them.tres" id="2_sidof"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kpxmf"]
+bg_color = Color(0, 0, 0, 0.25)
+border_width_left = 14
+border_width_top = 14
+border_width_right = 14
+border_width_bottom = 14
+border_color = Color(0.690196, 0.552941, 0.341176, 1)
+border_blend = true
+
+[node name="CardContainer" type="Node2D"]
+script = ExtResource("1_4t54u")
+
+[node name="BackgroundPanel" type="Panel" parent="."]
+custom_minimum_size = Vector2(280, 490)
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("2_sidof")
+theme_override_styles/panel = SubResource("StyleBoxFlat_kpxmf")
+
+[node name="GlowPanel" type="Panel" parent="."]
+custom_minimum_size = Vector2(280, 490)
+offset_right = 280.0
+offset_bottom = 490.0
+
+[node name="Icon" type="TextureRect" parent="."]
+modulate = Color(0.690196, 0.552941, 0.341176, 1)
+custom_minimum_size = Vector2(100, 100)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 86.0
+offset_top = 193.0
+offset_right = 186.0
+offset_bottom = 293.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+texture = ExtResource("2_brl7x")
+expand_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+theme = ExtResource("2_sidof")
