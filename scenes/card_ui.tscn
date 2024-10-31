@@ -95,10 +95,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ininu")
 [node name="Icon" type="TextureRect" parent="IconPanel"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 5.09187
-offset_top = 33.0919
-offset_right = 47.0919
-offset_bottom = 75.0919
+offset_left = 4.38477
+offset_top = 33.799
+offset_right = 46.3848
+offset_bottom = 75.799
 rotation = -0.785397
 expand_mode = 2
 

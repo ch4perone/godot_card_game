@@ -23,6 +23,10 @@ func enter() -> void:
 			var ui_layer = get_tree().get_nodes_in_group("ui_layer")[1] # Weather Box
 			if ui_layer:
 				print("Reparented to ui_layer: ", ui_layer)
+				if ui_layer.container.get_child_count() > 0:
+					# Transition previous weather card back to base state
+					var prev_weather_card = ui_layer.container.get_children()[0] as CardUI
+					prev_weather_card.card_state_machine.current_state.transition_requested.emit(prev_weather_card.card_state_machine.current_state, CardState.State.BASE)
 				card_ui.reparent(ui_layer.container)
 		elif card_ui.card.is_permanent():
 			var ui_layer = get_tree().get_nodes_in_group("ui_layer")[2] # Permant Box
