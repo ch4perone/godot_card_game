@@ -1,6 +1,7 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://r10julcyhqau"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://r10julcyhqau"]
 
 [ext_resource type="FontFile" uid="uid://d1hdvd6wmoho6" path="res://global/Ubuntu_Mono/UbuntuMono-Regular.ttf" id="1_71aoj"]
+[ext_resource type="StyleBox" uid="uid://d16an4mr6xnhc" path="res://scenes/styleboxes/bordered_panel.tres" id="2_ba2uv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8g2y2"]
 
@@ -42,3 +43,4 @@ Button/styles/pressed = SubResource("StyleBoxFlat_sfsph")
 Fonts/fonts/large = ExtResource("1_71aoj")
 Fonts/fonts/normal = ExtResource("1_71aoj")
 HBoxContainer/constants/separation = 20
+Panel/styles/panel = ExtResource("2_ba2uv")

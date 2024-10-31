@@ -3,11 +3,6 @@ extends Control
 
 signal reparent_requested(which_card_ui: CardUI)
 
-var GLOW_FAINT_STYLE_BOX := preload("res://scenes/styleboxes/card_glow_faint_stylebox.tres")
-var GLOW_STYLE_BOX := preload("res://scenes/styleboxes/card_glow_stylebox.tres")
-var GLOW_STRONG_STYLE_BOX := preload("res://scenes/styleboxes/card_glow_strong_stylebox.tres")
-
-
 @export var card: Card : set = _set_card
 @export var stats: Stats : set = _set_stats
 
@@ -20,8 +15,11 @@ var GLOW_STRONG_STYLE_BOX := preload("res://scenes/styleboxes/card_glow_strong_s
 # Artsy stuff
 @onready var card_art: Sprite2D = $CardArt
 @onready var glow_panel = $GlowPanel
+@onready var icon_glow_panel = %IconGlowPanel
 @onready var shader_material := ShaderMaterial.new()
 @onready var border_panel = $BorderPanel
+@onready var icon : TextureRect = %Icon
+@onready var icon_color = CustomColors.apply_alpha(0.85, CustomColors.BRONZE)
 var is_glowing_strong := false
 
 @onready var state: Label = $State
@@ -31,6 +29,10 @@ var is_glowing_strong := false
 @export var base_shimmer_material: ShaderMaterial
 @export var base_glow_material: ShaderMaterial
 @onready var original_index := self.get_index()
+@onready var weather_icon: Texture2D = preload("res://assets/icons/cloud_sun_rain_white.png")
+@onready var moon_icon: Texture2D = preload("res://assets/icons/moon_white.png")
+@onready var flash_icon: Texture2D = preload("res://assets/icons/flash_white.png")
+
 
 var shimmer_material: ShaderMaterial
 var shimmer_enabled := false
@@ -56,10 +58,43 @@ func _ready():
 		card_art.material = shimmer_material
 	
 	shader_material.shader = preload("res://scenes/styleboxes/glow.gdshader")
-	glow_panel.material = shader_material
-	
+	glow_panel.material = shader_material	
 
 	remove_shimmer()
+	remove_glow()
+	
+func _set_card(value: Card) -> void:
+	if not is_node_ready():
+		await ready
+
+	card = value
+	type_label.text = card.id
+	if FileAccess.file_exists(card.texture_path):
+		card_art.texture = load(card.texture_path)
+		card_art.scale = size / card_art.texture.get_size()
+	value_label.text = str(card.value)
+	if card.is_weather():
+		icon.texture = weather_icon
+		type_label.text += "\nWeather"
+	elif card.is_permanent():
+		icon.texture = moon_icon
+		type_label.text += "\nPermanent"
+	else:
+		icon.texture = flash_icon
+		type_label.text +="\nInstant"
+	icon.modulate = icon_color
+	 
+	
+	card.set_tooltip_from_values()
+		
+	self.stats = get_tree().get_first_node_in_group("player").stats
+	self.playable = stats.can_play_card(card)
+	
+	set_glow_color()
+	glow_color.a = 0.2
+	var icon_shader := icon_glow_panel.material.duplicate() as ShaderMaterial
+	icon_shader.set_shader_parameter("color", glow_color)
+	icon_glow_panel.material = icon_shader
 	remove_glow()
 
 func _set_playable(value: bool) -> void:
@@ -95,30 +130,6 @@ func _on_drag_or_aim_ended(_card: CardUI) -> void:
 
 func _on_character_stats_changed() -> void:
 	self.playable = stats.can_play_card(card)
-	
-func _set_card(value: Card) -> void:
-	if not is_node_ready():
-		await ready
-
-	card = value
-	type_label.text = card.id
-	if FileAccess.file_exists(card.texture_path):
-		card_art.texture = load(card.texture_path)
-		card_art.scale = size / card_art.texture.get_size()
-	value_label.text = str(card.value)
-	if card.is_permanent:
-		type_label.text += "\nPermanent"
-	else:
-		type_label.text +="\nInstant"
-
-	
-	card.set_tooltip_from_values()
-		
-	self.stats = get_tree().get_first_node_in_group("player").stats
-	self.playable = stats.can_play_card(card)
-	
-	set_glow_color()
-	remove_glow()
 	
 func set_glow_color() -> void:
 	if card.is_weather():
