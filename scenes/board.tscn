@@ -58,7 +58,8 @@ position = Vector2(445, 180)
 icon_texture = ExtResource("10_xafnj")
 glow_color = Color(0.6, 0.2, 0.9, 1)
 border_color = Color(0.698039, 0.47451, 0.647059, 1)
-size = Vector2(1600, 490)
+size = Vector2(1700, 490)
+listening_to_card_type = 1
 
 [node name="Hand" type="HBoxContainer" parent="BoardUI"]
 anchors_preset = 7

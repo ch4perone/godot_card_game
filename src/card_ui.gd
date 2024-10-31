@@ -156,7 +156,9 @@ func _on_drop_point_detector_area_entered(area) -> void:
 		if not drop_targets.has(area):
 			drop_targets.append(area)
 			if card_state_machine.current_state.state == CardState.State.DRAGGING:
-				add_strong_glow()
+				if not is_glowing_strong:
+					add_strong_glow()
+					Events.card_drag_found_target.emit(self)
 	elif area.is_in_group("card_target_selector"):
 		print("Collision with card targeting system")
 		if not is_glowing_strong:
@@ -166,6 +168,7 @@ func _on_drop_point_detector_area_exited(area):
 	drop_targets.erase(area)
 	if area.is_in_group("card_drop_area") and is_glowing_strong:
 		is_glowing_strong = false
+		Events.card_drag_lost_target.emit(self)
 		add_glow()
 	elif area.is_in_group( "card_target_selector"):
 		if not is_glowing_strong:
@@ -187,28 +190,17 @@ func remove_shimmer():
 	if shimmer_material:
 		shimmer_material.set_shader_parameter("time", 0.0)
 
-func add_strong_glow():
-	is_glowing_strong = true
-	glow_color.a = 0.6
-	shader_material.set_shader_parameter("color", glow_color)
-	shader_material.set_shader_parameter("glow_size", 50)
-
-
-	if card.is_weather():
-		var ui_layer = get_tree().get_nodes_in_group("ui_layer")[1] # Weather Box
-		if ui_layer:
-			ui_layer.show_glow()
-	
-	if card.is_permanent():
-		var ui_layer = get_tree().get_nodes_in_group("ui_layer")[2] # Curse Box
-		if ui_layer:
-			ui_layer.show_glow()
-
 func add_glow():
 	glow_panel.visible = true
 	glow_color.a = 0.5
 	shader_material.set_shader_parameter("color", glow_color)
 	shader_material.set_shader_parameter("glow_size", 20)
+
+func add_strong_glow():
+	is_glowing_strong = true
+	glow_color.a = 0.6
+	shader_material.set_shader_parameter("color", glow_color)
+	shader_material.set_shader_parameter("glow_size", 50)
 
 func remove_glow():
 	# Alternatively, make glow invisible

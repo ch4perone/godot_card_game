@@ -7,11 +7,15 @@ extends Node2D
 @onready var container : HBoxContainer = $HBoxContainer
 @onready var icon: TextureRect = $Icon
 
+@export_category("Appearance")
 @export var icon_texture: Texture2D
 @export var icon_color : Color = CustomColors.apply_alpha(0.7, CustomColors.BRONZE)
 @export var glow_color : Color = Color.GOLD
 @export var border_color : Color = CustomColors.BRONZE
 @export var size: Vector2 = Vector2(280, 490)
+
+@export_category("Functiojns")
+@export var listening_to_card_type: Card.Type
 
 func _ready() -> void:
 	glow_panel.size = size
@@ -32,7 +36,10 @@ func _ready() -> void:
 		icon.modulate = icon_color
 		center_icon()
 	
-	
+
+	Events.card_drag_found_target.connect(_on_card_drop_possible)
+	Events.card_drag_lost_target.connect(_on_card_drop_ended)
+	Events.card_drag_ended.connect(_on_card_drop_ended)
 
 func center_icon() -> void:
 	icon.position = (glow_panel.size - icon.size) / 2
@@ -48,3 +55,10 @@ func hide_glow() -> void:
 	shader_material.set_shader_parameter("color", glow_color)
 	shader_material.set_shader_parameter("glow_size", 20)
 	shader_material.set_shader_parameter("rect_size", size)
+
+func _on_card_drop_possible(used_card: CardUI) -> void:
+	if used_card.card.type == listening_to_card_type:
+		show_glow()
+
+func _on_card_drop_ended(used_card: CardUI) -> void:
+	hide_glow()
