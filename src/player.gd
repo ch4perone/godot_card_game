@@ -1,7 +1,7 @@
 class_name Player
 extends Node2D
 
-@export var stats: Stats : set = set_character_stats
+var stats: Stats : set = set_character_stats
 
 @onready var texture_rect : TextureRect = $TextureRect
 @onready var stats_ui : StatsUI = $StatsUI
@@ -12,7 +12,7 @@ func _ready() -> void:
 	update_player() # workaround for correct display of statsUI
 
 func set_character_stats(value: Stats) -> void:
-	stats = value.create_instance()
+	stats = value
 	
 	if not stats.stats_changed.is_connected(update_stats):
 		stats.stats_changed.connect(update_stats)

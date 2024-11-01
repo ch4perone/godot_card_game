@@ -56,6 +56,10 @@ func is_weather() -> bool:
 func is_permanent() -> bool:
 	return type == Type.Curse
 
+func is_instant() -> bool:
+	return type == Type.Instant
+
+
 func _get_targets(targets: Array[Node]) -> Array[Node]:
 	if not targets:
 		return []
